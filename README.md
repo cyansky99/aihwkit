@@ -1,5 +1,12 @@
 # IBM Analog Hardware Acceleration Kit
 
+> **Output-gradient-mask reproduction.**
+> This branch adds a standalone reproducer and explanation for a suspected
+> input-gradient inconsistency. No simulator correction or training experiment
+> is included in this commit. Start with the
+> [reproduction guide](issue_experiments/output_gradient_mask/README.md).
+> The original project README follows below.
+
 ![PyPI](https://img.shields.io/pypi/v/aihwkit)
 [![test-and-lint](https://github.com/IBM/aihwkit/actions/workflows/test-and-lint.yml/badge.svg?branch=master)](https://github.com/IBM/aihwkit/actions/workflows/test-and-lint.yml)
 [![Documentation Status](https://readthedocs.org/projects/aihwkit/badge/?version=latest)](https://aihwkit.readthedocs.io/en/latest/?badge=latest)
