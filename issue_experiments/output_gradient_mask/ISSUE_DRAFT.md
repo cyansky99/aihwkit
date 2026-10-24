@@ -12,7 +12,7 @@ This occurs in a small dense-layer example with iterative bound management
 and also with `forward.is_perfect=True`.
 
 The returned value is compared against `out_scale * out_bound * 0.999` after
-the native code restores the output scale. At that point, exceeding the threshold
+the existing AIHWKit C++/CUDA backend restores the output scale. At that point, exceeding the threshold
 does not necessarily mean the ADC clipped the value. Perfect forward should not
 apply ADC clipping at all.
 
@@ -22,14 +22,20 @@ I checked the upstream source at commit
 I have not established how much this affects training accuracy or which other
 workloads are affected.
 
+I collected the reproduction script, an experimental fix, and comparison tools in
+[my fork of AIHWKit](https://github.com/cyansky99/aihwkit/tree/fix/output-bound-gradient-mask).
+The `native` mask mode mentioned below is an experimental mode I added to this
+fork; it is not an option in the upstream version examined here.
+
 ## How to reproduce
 
 1. Use an environment with an existing AIHWKit installation.
 2. Download the standalone
-   [reproduction script](https://github.com/cyansky99/aihwkit/blob/a0ae95a/issue_experiments/output_gradient_mask/reproduce_upstream.py).
+   [reproduce_upstream.py](https://raw.githubusercontent.com/cyansky99/aihwkit/a0ae95a/issue_experiments/output_gradient_mask/reproduce_upstream.py)
+   from my fork and save it locally with that filename.
    It uses existing upstream APIs and requires no fork-specific settings,
    rebuild, dataset, or training run.
-3. Run:
+3. From the directory where you saved the script, run:
 
 ```bash
 python reproduce_upstream.py --device cpu --output upstream_cpu.json
@@ -81,14 +87,12 @@ restoration, and should not suppress gradients for perfect forward.
 * Conda version (or N/A): 24.11.3
 * GPU: NVIDIA GeForce RTX 4080 SUPER
 
-I added an experimental fix and comparison tools to
-[my fork](https://github.com/cyansky99/aihwkit/tree/fix/output-bound-gradient-mask).
-
 The standalone reproduction above works with an existing AIHWKit installation
 and requires no rebuild. To compare `legacy` (original masking), `native`
 (actual final ADC clipping mask), and `disabled` (no mask), build this fork using
 the [build and comparison instructions](https://github.com/cyansky99/aihwkit/blob/a0ae95a/issue_experiments/output_gradient_mask/README.md).
-The `native` mode requires the new C++/CUDA binding included in this fork.
+This fork-specific `native` mode requires the new C++/CUDA binding included
+in the fork.
 
 All three modes produce the same forward outputs in these examples.
 The `native` mode gives the expected input gradients in all three cases.
@@ -108,5 +112,5 @@ The error signal stored for local weight updates is separate from the masked
 input gradient, so a zero input gradient does not mean every local weight update
 is zero. No training-accuracy comparison is included here.
 
-If using the final native clipping decision matches the intended backward
-behavior, I can prepare a focused PR with regression tests.
+If using the final ADC clipping decision from the C++/CUDA backend matches
+the intended backward behavior, I can prepare a focused PR with regression tests.
