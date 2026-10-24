@@ -3,13 +3,15 @@
 This experimental fork is based on upstream
 `7f22aa7ff0054609fa120d1c2696414460f13f91` (source version 1.2.0).
 The initial reproduction-only commit `dda0a9a` remains available. Later commits
-add an experimental correction and measured comparison figures. No MNIST
-training code, dataset, checkpoint or training-accuracy conclusion is included.
+add an experimental correction and measured comparison figures. A separate
+[ConstantStep MNIST comparison](mnist/README.md) provides a five-trial runner and
+a completed one-trial pilot. Datasets and model checkpoints are not included.
 
 - [Standalone existing-API reproducer](reproduce_upstream.py)
 - [Fork-specific three-mode comparison](compare_modes.py)
 - [JSON-only plotter](plot_results.py)
 - [Issue draft](ISSUE_DRAFT.md)
+- [ConstantStep MNIST trial comparison and pilot](mnist/README.md)
 
 | Path | What it compares | Build requirement |
 | --- | --- | --- |
@@ -195,6 +197,8 @@ The example record includes related tile regression results and actual GPU
 execution separately from compilation. No full training is part of these checks.
 
 The isolated discrepancy concerns propagated input gradients, not a claim that
-every local weight-update error is zeroed. No training-accuracy effect or impact
-on all AIHWKit research is claimed. Quantized/noisy models and derivatives
-through dynamic management require separate analysis.
+every local weight-update error is zeroed. Training observations are reported
+separately in the [ConstantStep pilot](mnist/sample_results/pilot_seed0/README.md);
+that one-trial comparison does not estimate trial-to-trial variability or an
+impact on all AIHWKit research. Quantized/noisy models and derivatives through
+dynamic management require separate analysis.
