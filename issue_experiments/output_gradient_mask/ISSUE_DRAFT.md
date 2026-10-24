@@ -1,36 +1,54 @@
-# Output-bound masking can zero valid input gradients after scale restoration or perfect forward
+# Output-bound masking can silently zero valid input gradients after bound management or perfect forward
 
 ## Description
 
-The Python output-bound mask can suppress a valid input gradient when a returned
-forward output exceeds the nominal ADC bound but was not actually clipped.
-This occurs in a small dense-layer example with iterative bound management,
+The Python output-bound mask can silently produce incorrect input gradients:
+the forward pass returns the correct linear output, but backward returns zero
+instead of a nonzero gradient, without raising an error. Checking only forward
+outputs would miss this. The returned output exceeds the nominal ADC bound,
+even though no clipping occurred.
+
+This occurs in a small dense-layer example with iterative bound management
 and also with `forward.is_perfect=True`.
 
 The returned value is compared against `out_scale * out_bound * 0.999` after
-native output scale restoration. That threshold need not describe clipping in
-the internal ADC coordinates. Perfect forward should not introduce ADC clipping.
+the native code restores the output scale. At that point, exceeding the threshold
+does not necessarily mean the ADC clipped the value. Perfect forward should not
+apply ADC clipping at all.
 
-The source baseline examined is `7f22aa7ff0054609fa120d1c2696414460f13f91`
-(source version string 1.2.0). The observations below were obtained locally.
-Historical records lack a contemporaneous original-binary hash, and later
-independent CPU checks reused an experimental native binary with original Python.
-They are not presented as a fully authenticated pristine-build reproduction.
-The standalone script enables independent verification against upstream.
+I checked the upstream source at commit
+[`7f22aa7`](https://github.com/IBM/aihwkit/tree/7f22aa7ff0054609fa120d1c2696414460f13f91)
+(source version string 1.2.0). This report covers input-gradient propagation.
+I have not established how much this affects training accuracy or which other
+workloads are affected.
 
 ## How to reproduce
 
-1. Use an environment with an unmodified AIHWKit installation.
-2. Copy `issue_experiments/output_gradient_mask/reproduce_upstream.py` from
-   this fork. It only uses existing upstream APIs and does not require a dataset.
-3. Run `python reproduce_upstream.py --device cpu --output upstream_cpu.json`.
-4. If CUDA is available, repeat with `--device cuda --output upstream_cuda.json`.
-5. Check the printed package/binding paths to ensure the intended installation
-   was used. The script runs six cases, including diagnostic mask-off controls.
+1. Use an environment with an existing AIHWKit installation.
+2. Download the standalone
+   [reproduction script](https://github.com/cyansky99/aihwkit/blob/a0ae95a/issue_experiments/output_gradient_mask/reproduce_upstream.py).
+   It uses existing upstream APIs and requires no fork-specific settings,
+   rebuild, dataset, or training run.
+3. Run:
 
-The setup uses W=[1,1], x=[1,1], no bias, ADC bound 1, DAC bound 2,
-noise/quantization off, no noise management, perfect backward, and `loss=sum(y)`.
-No optimizer step is involved. Central finite differences are also saved.
+```bash
+python reproduce_upstream.py --device cpu --output upstream_cpu.json
+# Optional: requires a CUDA-enabled installation and an available GPU.
+python reproduce_upstream.py --device cuda --output upstream_cuda.json
+```
+
+Check the printed package and binding paths to confirm which installation
+was used. Each command saves JSON, CSV, and a terminal summary; use fresh output
+filenames when repeating it. The script runs six cases, including controls with
+`handle_output_bound=False`.
+
+The setup uses `W=[1,1]`, `x=[1,1]`, no bias, ADC bound 1, and DAC bound 2.
+Noise, quantization, and noise management are disabled. Backward is perfect,
+and the loss is `sum(y)`. No optimizer step is taken. The script also saves
+central finite-difference estimates of the input gradients.
+
+I obtained the following results on CPU and CUDA using the experimental build
+described below, which preserves the original masking behavior:
 
 | Forward case | Mask enabled | Output | Observed dL/dx | Expected dL/dx |
 | --- | --- | --- | --- | --- |
@@ -41,38 +59,51 @@ No optimizer step is involved. Central finite differences are also saved.
 | Actual clipping, management off | Yes | 1 | [0,0] | [0,0] |
 | Actual clipping, management off | No | 1 | [1,1] | [0,0] |
 
+Finite differences are approximately `[0.99993, 0.99993]` for the managed and
+perfect cases, and `[0, 0]` for actual clipping.
+
 ## Expected behavior
 
 For the managed and perfect examples, the returned output is the exact linear
-result and the input gradient should be [1,1]. For actual clipping the input
-gradient should remain zero. The diagnostic mask-off control in the last row
-shows why simply removing all masking is not a general solution.
+result, so the input gradient should be `[1,1]`. With actual clipping, the input
+gradient should remain zero. The last row shows why disabling the mask
+altogether would not fix both cases.
+
+Masking should follow the actual clipping decision before output scale
+restoration, and should not suppress gradients for perfect forward.
 
 ## Other information
 
-- PyTorch: 2.9.1+cu126; reported Torch CUDA runtime 12.6.
-- Package source version: 1.2.0; pinned source commit above, not a claim of a
-  separately tested release-tag build.
-- OS: Ubuntu userspace under WSL2 Linux (the script records the full platform).
-- Python: 3.12.12 (Conda distribution).
-- Conda: used; exact Conda version was not captured in the original evidence.
-- GPU used for earlier local observations: NVIDIA GeForce RTX 4080 SUPER.
+* Pytorch version: 2.9.1+cu126 (Torch CUDA runtime 12.6)
+* Package version: source version 1.2.0, based on upstream commit `7f22aa7`; experimental fork used for the attached measurements
+* OS: Ubuntu 22.04.4 LTS under WSL2, Linux 6.18.54.1-microsoft-standard-WSL2, x86_64
+* Python version: 3.12.12
+* Conda version (or N/A): 24.11.3
+* GPU: NVIDIA GeForce RTX 4080 SUPER
 
-The original commit `dda0a9a` contains only the reproducer and explanation.
-Later commits provide an experimental legacy/native/disabled implementation and
-small measured comparison figures. Those new samples use the experimental binary,
-including the existing-API mask-on/off samples; they are not pristine-upstream
-verification. Training comparisons are not included.
+The reproduction above uses existing AIHWKit APIs and requires no rebuild.
+The three-mode comparison below requires building this fork, since `native`
+uses a new C++/CUDA binding.
 
-The stored local weight-update error is separate from the masked input-gradient
-path; this report does not claim that every local weight update is directly
-zeroed. Training accuracy is outside this report; no training-impact conclusion
-is included or required for this numerical reproduction.
+The fork includes an experimental comparison between `legacy` (original
+masking), `native` (actual final ADC clipping mask), and `disabled` (no mask).
+All three produce the same forward outputs in these examples; `native` gives
+the expected input gradients in all three cases.
 
-Would recording the final native clipping decision be consistent with the
-intended input-gradient semantics? I can prepare a focused PR and regression
-tests based on maintainer feedback.
+![CPU comparison of outputs, autograd gradients, and finite differences](https://raw.githubusercontent.com/cyansky99/aihwkit/a0ae95a/issue_experiments/output_gradient_mask/sample_results/modes_cpu.png)
 
-<!-- Before submission: link the published commit/permalinks and attached raw
-results; check for duplicate reports. Add training evidence only if reviewed.
-This draft has not been submitted. -->
+[Reproduction and comparison instructions](https://github.com/cyansky99/aihwkit/blob/a0ae95a/issue_experiments/output_gradient_mask/README.md)
+and [CPU/CUDA raw results and figures](https://github.com/cyansky99/aihwkit/tree/a0ae95a/issue_experiments/output_gradient_mask/sample_results)
+are available. The JSON records include source state, package/binding paths,
+and the binding hash.
+
+All attached measurements, including the mask-on/off runs using the existing
+API, were made with the experimental build, not a fresh unmodified upstream
+build. The standalone script can also be run with an upstream installation.
+
+The error signal stored for local weight updates is separate from the masked
+input gradient, so a zero input gradient does not mean every local weight update
+is zero. No training-accuracy comparison is included here.
+
+If using the final native clipping decision matches the intended backward
+behavior, I can prepare a focused PR with regression tests.
