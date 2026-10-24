@@ -1,0 +1,1688 @@
+{
+  "schema_version": 1,
+  "original_records": "Byte-for-byte copies; original machine paths remain in provenance. No checkpoints or datasets.",
+  "stages": {
+    "baseline_snapshot": "30 original completed runs",
+    "workaround": "10 additional runs measured later"
+  },
+  "verified": {
+    "completed_runs": 40,
+    "epochs_per_run": 30,
+    "trials_per_condition": 10,
+    "identical_initial_weights_sha256": "23f6b677320f6cb84a0eabd9e9b820c16ca8d5a07312b410486dfc7786237cfa",
+    "identical_epoch_order_sha256": [
+      "1e8385d7899b4c8f2e9f55480fc4c1775cc691c5170f3cf7aa1f43b9c8bc6e0a",
+      "d73288534717ab38ab03c16834066320eb338b5af52cae15f63866a1de382a68",
+      "b26446438d0b76ff1984c0c689993f62c289155d1131d952775156a81565cc09",
+      "99b36602e54cc7a2fb2c0d517029728a4f1c4bb6b9a8fbc7eca4ff3725266a05",
+      "350987d6179eb6d503fd4ef2897582fc97ba410aa4fe6985b157d2a95c610681",
+      "8ac1362eadd1af54a932a7c878d0c510c131cd6e8079c9baf25447678980ec8f",
+      "a2abf04c8778ce7b27ca754565dd09baafdc04587ff7967ebeee2058e85ef79e",
+      "49bf69a2ac3df85605f14028d8fadf5745ed69abeabc0f3cd8ba68a30e41eb60",
+      "6b0f5822554a1c009afcb5cc8ef52828da7be2dd5f335c0ca0bdd4fe9994cd7c",
+      "237c03c1f2c28b9fb06a19dbed31626adf2f761beb417e5bd97418c14cfdd2c8",
+      "3bce864fa56c7447b8af9de2c05636f3ae706d4525dcefd2db9304cd772a395e",
+      "da3a0a73f4c6d2bc1460fa144803e504788b8a8388a7bcbb251082ff5382b1d3",
+      "d931717929c20421ee21d79b6ea631bc3f293ad0e27b53d71e03d69f6182b3a7",
+      "19c974ba7ca412692deb8a12f74d674f20e43758ef888f3a6c9e959895108f7a",
+      "03cdc0966c0e619cec02f31363c7ffcaf0d5a6185c0eda2e0db0062b80ef3388",
+      "d37df0e1aba8abd9e905152c4a833ca46cd007410313663a008510bf6d53e735",
+      "03f88aed908a06fd32895644deeb75e0e5e8705ae059252e77b59175edf17b1d",
+      "5912c04bdba472a7fd59c7a9dce8178c339c346d7c9685c7ca5a65d1ea3bbb14",
+      "f2ec8a9133af5c251edb8b0d7e80a452104204e67b3b8a11df57133822b9fe19",
+      "f1d5c54ca18d15b98cef78749cde9d635d999f5dbcfc393f7885623d15d092bb",
+      "3c952de9394081d0817726599f747a806cf5576bd64d3e4cbac30b63d0bda078",
+      "a2bcea4e5caa6c0249027e178817e7010c6ffa5aae72bff9e1d8c7d62d425067",
+      "60718131038c2dcc7cc002440078ef7310122e73163784e670f8625452a54098",
+      "0dc08f4c1a8e39133af0257b32f39a41a1cbb0f5bfeab3d71c4ea386fc4adfcc",
+      "51e4d3ce73bf0c16b4e485e0f77725dd008dd20a91d2debabd1309dfbf02385f",
+      "2bb00bbdffddf99fab219bcdb6513d267babdaf83bde2dc746de90952e01ddab",
+      "1a513a102c999491705d6f1eda528b5920be2096f2e95b587994092ddd7a3bf2",
+      "c7ab2e45c4129deef791f6379adc7858c1ecb757a5cc09b4bdd25a33016f2e9b",
+      "740fb1c07d1ed3c8e5c6828ff2bc1bb6a8d273c53964d0356bb67fc72bec335b",
+      "3dad3f0611705c227672a6e02a79dbd395a5a979114bedf6a4d9697cb5f0d16d"
+    ],
+    "common_source_sha256": "116ff1e9458208d5c5e86b8570666a7d6d5bbfee7196d5d466276f83529fab82",
+    "common_binding_sha256": "4f744b7b4b012110d6bb8751f409f1b417476f5cf9db580acecb7a08eb4c297a",
+    "same_training_loop_ast": true,
+    "condition_config_differences_only": true
+  },
+  "private_adapter": {
+    "sha256": "4dfd7ab6858150ba34b1c7afce1b7d7809481731342d78951774e05857c5e39e",
+    "published": false,
+    "purpose": "Validated original evidence and shared training loop; checked initialization/data order before new training; refreshed combined figures. The current public runner executes all four conditions without this one-off adapter."
+  },
+  "rendering_plotter_sha256": "cc2bf8adaa8cd7abbf66d983b58c595b6469a5130b4f8bf74d4ddde452cdf6cd",
+  "artifacts": {
+    "provenance/baseline_snapshot/executed_runner.py": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/executed_runner.py",
+      "source_sha256": "0924337992ac3588f25d5edbd486fe984f2431f9d79a709b70351cc7b934d7b0",
+      "published_sha256": "0924337992ac3588f25d5edbd486fe984f2431f9d79a709b70351cc7b934d7b0"
+    },
+    "provenance/baseline_snapshot/executed_plot_training_comparison.py": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/executed_plot_training_comparison.py",
+      "source_sha256": "f4f97b4143b862ffd7f8f786913ba8b865a114064075aa46c3c765e91ce94ba2",
+      "published_sha256": "f4f97b4143b862ffd7f8f786913ba8b865a114064075aa46c3c765e91ce94ba2"
+    },
+    "provenance/baseline_snapshot/campaign.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/campaign.json",
+      "source_sha256": "33e0b4d17c4d364cc3c7449fed26c8863ffce93ac4a042582cb24207dcdd35f8",
+      "published_sha256": "33e0b4d17c4d364cc3c7449fed26c8863ffce93ac4a042582cb24207dcdd35f8"
+    },
+    "runs/trial_01/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/legacy/configuration.json",
+      "source_sha256": "b935680c227490840891a271309ccb410faf54f952597b82ad5a74255918f628",
+      "published_sha256": "b935680c227490840891a271309ccb410faf54f952597b82ad5a74255918f628"
+    },
+    "runs/trial_01/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/legacy/spec.json",
+      "source_sha256": "e6896816feccb354eb4301279aa479ef8c8c714a040e5f2c7349a65750bca226",
+      "published_sha256": "e6896816feccb354eb4301279aa479ef8c8c714a040e5f2c7349a65750bca226"
+    },
+    "runs/trial_01/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/legacy/status.json",
+      "source_sha256": "78a7bbdcb49d41468db8be84e71d1c70a5142a217744c45691e0277437cce7f6",
+      "published_sha256": "78a7bbdcb49d41468db8be84e71d1c70a5142a217744c45691e0277437cce7f6"
+    },
+    "runs/trial_01/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/legacy/summary.json",
+      "source_sha256": "d31aa39da9e9bddc02c4a4fab7de83cb81fc036e327f0f56cf91544e1406a546",
+      "published_sha256": "d31aa39da9e9bddc02c4a4fab7de83cb81fc036e327f0f56cf91544e1406a546"
+    },
+    "runs/trial_01/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/legacy/history.csv",
+      "source_sha256": "3cb2b72dbda8f0e30840bfaa92c918c7354231233af1574b28706d445eb6e781",
+      "published_sha256": "3cb2b72dbda8f0e30840bfaa92c918c7354231233af1574b28706d445eb6e781"
+    },
+    "runs/trial_01/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/legacy/diagnostics.csv",
+      "source_sha256": "6430fd72793e03ed116fe745b594f18de6c067f5e17adb42905728dd1c887d82",
+      "published_sha256": "6430fd72793e03ed116fe745b594f18de6c067f5e17adb42905728dd1c887d82"
+    },
+    "runs/trial_01/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/legacy/weights.csv",
+      "source_sha256": "fa98259524d60a25f9ff330a7bf2b32ec9994724861a38f6fb2e1f7f832158ea",
+      "published_sha256": "fa98259524d60a25f9ff330a7bf2b32ec9994724861a38f6fb2e1f7f832158ea"
+    },
+    "runs/trial_01/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_01/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/native/configuration.json",
+      "source_sha256": "f67b297de2117fbe0401b85a183304a48d83263baef2c30f0d125e14bbe003d2",
+      "published_sha256": "f67b297de2117fbe0401b85a183304a48d83263baef2c30f0d125e14bbe003d2"
+    },
+    "runs/trial_01/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/native/spec.json",
+      "source_sha256": "30b5c4289c20adbcf49261236bb73c3391f708fb8bb086d390ffaab902930736",
+      "published_sha256": "30b5c4289c20adbcf49261236bb73c3391f708fb8bb086d390ffaab902930736"
+    },
+    "runs/trial_01/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/native/status.json",
+      "source_sha256": "d4f52f19478623c3d8df83921ac2ea934988db01a61822fb576d565327fddb96",
+      "published_sha256": "d4f52f19478623c3d8df83921ac2ea934988db01a61822fb576d565327fddb96"
+    },
+    "runs/trial_01/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/native/summary.json",
+      "source_sha256": "e6efd7f2a18bd1fc222ec971d3ab2d0797db984995b035e884db4d6865fe0b89",
+      "published_sha256": "e6efd7f2a18bd1fc222ec971d3ab2d0797db984995b035e884db4d6865fe0b89"
+    },
+    "runs/trial_01/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/native/history.csv",
+      "source_sha256": "4a00074234ce69a616cd1af2001370b0ce9f4a223e50085b0affed8125ad4d74",
+      "published_sha256": "4a00074234ce69a616cd1af2001370b0ce9f4a223e50085b0affed8125ad4d74"
+    },
+    "runs/trial_01/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/native/diagnostics.csv",
+      "source_sha256": "109d6ac43b2b77bc122717e20b8cfeea44d5cdef4c7494801ddd53836d82b436",
+      "published_sha256": "109d6ac43b2b77bc122717e20b8cfeea44d5cdef4c7494801ddd53836d82b436"
+    },
+    "runs/trial_01/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/native/weights.csv",
+      "source_sha256": "25bed2a410d9f886ade26292d1b149d3086e479d861d6cffdb87ee2ec2f60790",
+      "published_sha256": "25bed2a410d9f886ade26292d1b149d3086e479d861d6cffdb87ee2ec2f60790"
+    },
+    "runs/trial_01/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_01/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/disabled/configuration.json",
+      "source_sha256": "fc798d40efc4e069f59ef836f738af8a81290c98dcb4bb82effd48fb859c7880",
+      "published_sha256": "fc798d40efc4e069f59ef836f738af8a81290c98dcb4bb82effd48fb859c7880"
+    },
+    "runs/trial_01/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/disabled/spec.json",
+      "source_sha256": "bd5c4672abb3b390c9f6c32d1c6fb01fd3a461381c7edee26c6793013dc10030",
+      "published_sha256": "bd5c4672abb3b390c9f6c32d1c6fb01fd3a461381c7edee26c6793013dc10030"
+    },
+    "runs/trial_01/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/disabled/status.json",
+      "source_sha256": "5f57de159eaf86f7557e86a764eb26c09edd9940b7ea2e109d3a93ca3482f342",
+      "published_sha256": "5f57de159eaf86f7557e86a764eb26c09edd9940b7ea2e109d3a93ca3482f342"
+    },
+    "runs/trial_01/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/disabled/summary.json",
+      "source_sha256": "97f04bed7e28bec8606daadc8006c3f10ff00ba1f7b685fecc23daa1f3239666",
+      "published_sha256": "97f04bed7e28bec8606daadc8006c3f10ff00ba1f7b685fecc23daa1f3239666"
+    },
+    "runs/trial_01/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/disabled/history.csv",
+      "source_sha256": "b179d8655a0ae8b1522a975a9fbe791c563616dcd1fe6172c5a5fe462e1d8b0d",
+      "published_sha256": "b179d8655a0ae8b1522a975a9fbe791c563616dcd1fe6172c5a5fe462e1d8b0d"
+    },
+    "runs/trial_01/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/disabled/diagnostics.csv",
+      "source_sha256": "38500dc5143dad5f81c80b81ce66b8fc88b45fe67666e00757dcbae3b4218ab8",
+      "published_sha256": "38500dc5143dad5f81c80b81ce66b8fc88b45fe67666e00757dcbae3b4218ab8"
+    },
+    "runs/trial_01/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/disabled/weights.csv",
+      "source_sha256": "f4637b5aa6a70ffd647a2aa90273dca09c048779c785d74a97bbb64994042da5",
+      "published_sha256": "f4637b5aa6a70ffd647a2aa90273dca09c048779c785d74a97bbb64994042da5"
+    },
+    "runs/trial_01/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_01/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_02/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/legacy/configuration.json",
+      "source_sha256": "f4f4b26ac55a233cc49d24a510cef932c2dc2f5883a5c182f7652735b3440c9e",
+      "published_sha256": "f4f4b26ac55a233cc49d24a510cef932c2dc2f5883a5c182f7652735b3440c9e"
+    },
+    "runs/trial_02/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/legacy/spec.json",
+      "source_sha256": "680abeed6c4162719b97e664f3789470e8988af84ec1d09e6ee5bc1881d19ae6",
+      "published_sha256": "680abeed6c4162719b97e664f3789470e8988af84ec1d09e6ee5bc1881d19ae6"
+    },
+    "runs/trial_02/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/legacy/status.json",
+      "source_sha256": "e5bb2eaaae3ef0711165a0df45bd6f314f667df3b24d307c9c8f2380e5fb1799",
+      "published_sha256": "e5bb2eaaae3ef0711165a0df45bd6f314f667df3b24d307c9c8f2380e5fb1799"
+    },
+    "runs/trial_02/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/legacy/summary.json",
+      "source_sha256": "3983b1e76107c584fb50247c22d6cf71928136947071c4c97edb841a81396c14",
+      "published_sha256": "3983b1e76107c584fb50247c22d6cf71928136947071c4c97edb841a81396c14"
+    },
+    "runs/trial_02/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/legacy/history.csv",
+      "source_sha256": "2e7004d58f8be3aed935690e63efbadc1f3f2c85562f385bc6dc647083ba6b72",
+      "published_sha256": "2e7004d58f8be3aed935690e63efbadc1f3f2c85562f385bc6dc647083ba6b72"
+    },
+    "runs/trial_02/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/legacy/diagnostics.csv",
+      "source_sha256": "75872ee19e01b75052ccf1ef9f3c930993e97be4b9949c15d64a83bc520de6c1",
+      "published_sha256": "75872ee19e01b75052ccf1ef9f3c930993e97be4b9949c15d64a83bc520de6c1"
+    },
+    "runs/trial_02/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/legacy/weights.csv",
+      "source_sha256": "73bb7572debf715334c328eb97640ba754c1e613cd24ff6f4f79f45efd7b5a59",
+      "published_sha256": "73bb7572debf715334c328eb97640ba754c1e613cd24ff6f4f79f45efd7b5a59"
+    },
+    "runs/trial_02/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_02/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/native/configuration.json",
+      "source_sha256": "04630444789bc483c8d62bb9ce5cafdaad6ab7a372135d2e835b550a59ab62d3",
+      "published_sha256": "04630444789bc483c8d62bb9ce5cafdaad6ab7a372135d2e835b550a59ab62d3"
+    },
+    "runs/trial_02/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/native/spec.json",
+      "source_sha256": "a959ee22cb753a83f75e6984d751162157986d204ab4e173ba8d4b29f7b1e261",
+      "published_sha256": "a959ee22cb753a83f75e6984d751162157986d204ab4e173ba8d4b29f7b1e261"
+    },
+    "runs/trial_02/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/native/status.json",
+      "source_sha256": "cc8530357582f399a124873368d6d4afffb2be9d2d66a9f422cb90fbb4947ad5",
+      "published_sha256": "cc8530357582f399a124873368d6d4afffb2be9d2d66a9f422cb90fbb4947ad5"
+    },
+    "runs/trial_02/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/native/summary.json",
+      "source_sha256": "49b93a126af63dae54df101f097fa74215164a4bad4563173650a6c123a88451",
+      "published_sha256": "49b93a126af63dae54df101f097fa74215164a4bad4563173650a6c123a88451"
+    },
+    "runs/trial_02/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/native/history.csv",
+      "source_sha256": "063d7ba10567e639ebd14a5a286a9365af3fa85d22b00f46763df982741d4f9e",
+      "published_sha256": "063d7ba10567e639ebd14a5a286a9365af3fa85d22b00f46763df982741d4f9e"
+    },
+    "runs/trial_02/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/native/diagnostics.csv",
+      "source_sha256": "cd1f3d5d69cfeea5b2aba0170e4080414bb92a96ab2f21bedcfc4116efe59679",
+      "published_sha256": "cd1f3d5d69cfeea5b2aba0170e4080414bb92a96ab2f21bedcfc4116efe59679"
+    },
+    "runs/trial_02/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/native/weights.csv",
+      "source_sha256": "8f15163e4e3a4374200543741ac276b75d46d347ffdbf5819773a12a04fcec5c",
+      "published_sha256": "8f15163e4e3a4374200543741ac276b75d46d347ffdbf5819773a12a04fcec5c"
+    },
+    "runs/trial_02/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_02/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/disabled/configuration.json",
+      "source_sha256": "2a1809e7501025fd99d8f4e90b4757b6159113117135f71aae679f528d986638",
+      "published_sha256": "2a1809e7501025fd99d8f4e90b4757b6159113117135f71aae679f528d986638"
+    },
+    "runs/trial_02/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/disabled/spec.json",
+      "source_sha256": "8a35c64501dab194e282a440b1d3acee5717f08838007d4a3f7c1f2e6e160297",
+      "published_sha256": "8a35c64501dab194e282a440b1d3acee5717f08838007d4a3f7c1f2e6e160297"
+    },
+    "runs/trial_02/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/disabled/status.json",
+      "source_sha256": "d34dd9f41d2673ba31f12f843201b4b719ddb39b03c58bca158f7e9ed9289df9",
+      "published_sha256": "d34dd9f41d2673ba31f12f843201b4b719ddb39b03c58bca158f7e9ed9289df9"
+    },
+    "runs/trial_02/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/disabled/summary.json",
+      "source_sha256": "63950c6bb83802bc7009e7da21c882bdfdce81465ee4376bc4aca61fa651cd3a",
+      "published_sha256": "63950c6bb83802bc7009e7da21c882bdfdce81465ee4376bc4aca61fa651cd3a"
+    },
+    "runs/trial_02/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/disabled/history.csv",
+      "source_sha256": "a5ccde437be386fdee58bba522f8e0590bf9baadf611851eb9c37dd9a8bc9778",
+      "published_sha256": "a5ccde437be386fdee58bba522f8e0590bf9baadf611851eb9c37dd9a8bc9778"
+    },
+    "runs/trial_02/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/disabled/diagnostics.csv",
+      "source_sha256": "492ddb308b7a46f0c45ae42c249c925485d321234f0729315c63a4efb2fa325a",
+      "published_sha256": "492ddb308b7a46f0c45ae42c249c925485d321234f0729315c63a4efb2fa325a"
+    },
+    "runs/trial_02/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/disabled/weights.csv",
+      "source_sha256": "4275bebbc49f1d994b9c8d9f1409d49d793f0e16bfd4f967e72f9ff5664cd294",
+      "published_sha256": "4275bebbc49f1d994b9c8d9f1409d49d793f0e16bfd4f967e72f9ff5664cd294"
+    },
+    "runs/trial_02/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_02/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_03/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/legacy/configuration.json",
+      "source_sha256": "adc6198ee90aeeb8bb4865b535761a94997f0af0ecda896de93ea31e3578a188",
+      "published_sha256": "adc6198ee90aeeb8bb4865b535761a94997f0af0ecda896de93ea31e3578a188"
+    },
+    "runs/trial_03/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/legacy/spec.json",
+      "source_sha256": "0badcdfe1643cbe91b2b6fb9cff9aa785ed73bfbf2e62135a6ee1c497a44700f",
+      "published_sha256": "0badcdfe1643cbe91b2b6fb9cff9aa785ed73bfbf2e62135a6ee1c497a44700f"
+    },
+    "runs/trial_03/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/legacy/status.json",
+      "source_sha256": "58e4b29f307a9ab78be8929cb5c345de438896bfcc460fe06533fd9e3e96b1e9",
+      "published_sha256": "58e4b29f307a9ab78be8929cb5c345de438896bfcc460fe06533fd9e3e96b1e9"
+    },
+    "runs/trial_03/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/legacy/summary.json",
+      "source_sha256": "03a29a3d592bd397e24cddcce88fc9de204acb6f7cb368fed8560807ab3f0218",
+      "published_sha256": "03a29a3d592bd397e24cddcce88fc9de204acb6f7cb368fed8560807ab3f0218"
+    },
+    "runs/trial_03/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/legacy/history.csv",
+      "source_sha256": "b9fed0afd051cb18100f905e6e8d2cb42f31dc8505701e9d1475403bcdb5126e",
+      "published_sha256": "b9fed0afd051cb18100f905e6e8d2cb42f31dc8505701e9d1475403bcdb5126e"
+    },
+    "runs/trial_03/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/legacy/diagnostics.csv",
+      "source_sha256": "1dab42c4218c16afd89e886172a550dc360985e69ca35cab9b18930d1a46ce77",
+      "published_sha256": "1dab42c4218c16afd89e886172a550dc360985e69ca35cab9b18930d1a46ce77"
+    },
+    "runs/trial_03/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/legacy/weights.csv",
+      "source_sha256": "35856fab5f4edd499af0bb4e680138d58451c4ba5d1488e3834be1e3f772b60d",
+      "published_sha256": "35856fab5f4edd499af0bb4e680138d58451c4ba5d1488e3834be1e3f772b60d"
+    },
+    "runs/trial_03/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_03/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/native/configuration.json",
+      "source_sha256": "9d6b25733d3a3b8cbc2e8cb3eaa78c8ceee60ca65303c17d9daad905c92cca45",
+      "published_sha256": "9d6b25733d3a3b8cbc2e8cb3eaa78c8ceee60ca65303c17d9daad905c92cca45"
+    },
+    "runs/trial_03/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/native/spec.json",
+      "source_sha256": "4d60ce27a7b6494296b8cbc3f8ff5efe601e0de3f3ac94f9ba4b230d03a69469",
+      "published_sha256": "4d60ce27a7b6494296b8cbc3f8ff5efe601e0de3f3ac94f9ba4b230d03a69469"
+    },
+    "runs/trial_03/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/native/status.json",
+      "source_sha256": "e33f2a00d85723ef2906a65c0cd158d3d4bad73688e49f9c06de3be223125f1c",
+      "published_sha256": "e33f2a00d85723ef2906a65c0cd158d3d4bad73688e49f9c06de3be223125f1c"
+    },
+    "runs/trial_03/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/native/summary.json",
+      "source_sha256": "88428cfa50f56776af271accb2bd095737051c003f6601c3a66dae8d1e825abf",
+      "published_sha256": "88428cfa50f56776af271accb2bd095737051c003f6601c3a66dae8d1e825abf"
+    },
+    "runs/trial_03/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/native/history.csv",
+      "source_sha256": "2947f60a82e1695c92029f400032397126921944816e4ca798f7f8b4da5e8186",
+      "published_sha256": "2947f60a82e1695c92029f400032397126921944816e4ca798f7f8b4da5e8186"
+    },
+    "runs/trial_03/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/native/diagnostics.csv",
+      "source_sha256": "0e7dfff323bb43c07a2033331b8fd41d84e477401d8c6b7df7cf3dd388352a22",
+      "published_sha256": "0e7dfff323bb43c07a2033331b8fd41d84e477401d8c6b7df7cf3dd388352a22"
+    },
+    "runs/trial_03/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/native/weights.csv",
+      "source_sha256": "9d71b3ca40658b5fb2b3d6f2d7a862fda8811b83821617b8c4a0ce3dfd4ac857",
+      "published_sha256": "9d71b3ca40658b5fb2b3d6f2d7a862fda8811b83821617b8c4a0ce3dfd4ac857"
+    },
+    "runs/trial_03/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_03/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/disabled/configuration.json",
+      "source_sha256": "8452315c4816f999534c4924be253273bce22d1f6d78b85433f26a02bce511c2",
+      "published_sha256": "8452315c4816f999534c4924be253273bce22d1f6d78b85433f26a02bce511c2"
+    },
+    "runs/trial_03/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/disabled/spec.json",
+      "source_sha256": "28b779f05ff0700152e80738725742343fb49e6a4639c88b2949bb23885fb0db",
+      "published_sha256": "28b779f05ff0700152e80738725742343fb49e6a4639c88b2949bb23885fb0db"
+    },
+    "runs/trial_03/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/disabled/status.json",
+      "source_sha256": "d25b19b33d4394b7e679781b6234f8069fbfb959ec5226e38648c941b97f02a1",
+      "published_sha256": "d25b19b33d4394b7e679781b6234f8069fbfb959ec5226e38648c941b97f02a1"
+    },
+    "runs/trial_03/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/disabled/summary.json",
+      "source_sha256": "cfa8b5899c177849eed09445bf24993a7e097d0a6a5ba29c1a5860875ce8cda1",
+      "published_sha256": "cfa8b5899c177849eed09445bf24993a7e097d0a6a5ba29c1a5860875ce8cda1"
+    },
+    "runs/trial_03/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/disabled/history.csv",
+      "source_sha256": "49259c29b72e4a8d1035351ac9edb7ab9ff42a63f2361a0d54847e4445795acf",
+      "published_sha256": "49259c29b72e4a8d1035351ac9edb7ab9ff42a63f2361a0d54847e4445795acf"
+    },
+    "runs/trial_03/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/disabled/diagnostics.csv",
+      "source_sha256": "f5c104badee869a6aa287518dcf4bb9089101292b5b0e278f86256b83f767444",
+      "published_sha256": "f5c104badee869a6aa287518dcf4bb9089101292b5b0e278f86256b83f767444"
+    },
+    "runs/trial_03/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/disabled/weights.csv",
+      "source_sha256": "2dcbd693c0882d5182ec9dff82c7df6737ed92fcee6b5e8b90c290f031f89d3a",
+      "published_sha256": "2dcbd693c0882d5182ec9dff82c7df6737ed92fcee6b5e8b90c290f031f89d3a"
+    },
+    "runs/trial_03/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_03/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_04/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/legacy/configuration.json",
+      "source_sha256": "7f61c144528b77e777e4805da7e511fce25861be3652e038f919e7e467882049",
+      "published_sha256": "7f61c144528b77e777e4805da7e511fce25861be3652e038f919e7e467882049"
+    },
+    "runs/trial_04/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/legacy/spec.json",
+      "source_sha256": "3066b3b7bbdf8cc80310ac8b0fa7a225c69db9ba86b6bac944c78abe3f08e4d9",
+      "published_sha256": "3066b3b7bbdf8cc80310ac8b0fa7a225c69db9ba86b6bac944c78abe3f08e4d9"
+    },
+    "runs/trial_04/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/legacy/status.json",
+      "source_sha256": "da5c13da49cc67f2c6f5be194b80cf6afe0b0ccba431db7c4e2b7c77c5a5a157",
+      "published_sha256": "da5c13da49cc67f2c6f5be194b80cf6afe0b0ccba431db7c4e2b7c77c5a5a157"
+    },
+    "runs/trial_04/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/legacy/summary.json",
+      "source_sha256": "87ffc880c93dd7f6cb58fdfcea5ba42b18294a9a873e62fac770d6f0a3714986",
+      "published_sha256": "87ffc880c93dd7f6cb58fdfcea5ba42b18294a9a873e62fac770d6f0a3714986"
+    },
+    "runs/trial_04/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/legacy/history.csv",
+      "source_sha256": "0ba8ddc9209d2cbf8a705c3e8d316c612d9130dc7d7d15f002b40ea0bac1a689",
+      "published_sha256": "0ba8ddc9209d2cbf8a705c3e8d316c612d9130dc7d7d15f002b40ea0bac1a689"
+    },
+    "runs/trial_04/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/legacy/diagnostics.csv",
+      "source_sha256": "1704ab5b31a9f7d117412acd1c02e571ec4ed95ce5e364006d28867053720d78",
+      "published_sha256": "1704ab5b31a9f7d117412acd1c02e571ec4ed95ce5e364006d28867053720d78"
+    },
+    "runs/trial_04/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/legacy/weights.csv",
+      "source_sha256": "f5a1072267ddc075d94f52aab595f1ac347d9cb351a2e7bab60a69a694f72163",
+      "published_sha256": "f5a1072267ddc075d94f52aab595f1ac347d9cb351a2e7bab60a69a694f72163"
+    },
+    "runs/trial_04/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_04/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/native/configuration.json",
+      "source_sha256": "dded5c79dc561820b6c254008dda2af47b2741fff9f9860776e92c6abaa1df1f",
+      "published_sha256": "dded5c79dc561820b6c254008dda2af47b2741fff9f9860776e92c6abaa1df1f"
+    },
+    "runs/trial_04/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/native/spec.json",
+      "source_sha256": "2e01827f1e0842506452b1d42127122d968c3667e796c89393009fdb1bba5fb7",
+      "published_sha256": "2e01827f1e0842506452b1d42127122d968c3667e796c89393009fdb1bba5fb7"
+    },
+    "runs/trial_04/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/native/status.json",
+      "source_sha256": "8d35051348ec63706f9c8100ba745b09238533366b8f573e8ce7f68065756b25",
+      "published_sha256": "8d35051348ec63706f9c8100ba745b09238533366b8f573e8ce7f68065756b25"
+    },
+    "runs/trial_04/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/native/summary.json",
+      "source_sha256": "1de03ce80403dc8066072362d75aa022bbc3c9a1eadff1af83add93af3e4fcfc",
+      "published_sha256": "1de03ce80403dc8066072362d75aa022bbc3c9a1eadff1af83add93af3e4fcfc"
+    },
+    "runs/trial_04/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/native/history.csv",
+      "source_sha256": "2dec2929204ac99559429ce6f8b4a1bed6ed911876b74ca4466411a5c2efd6d3",
+      "published_sha256": "2dec2929204ac99559429ce6f8b4a1bed6ed911876b74ca4466411a5c2efd6d3"
+    },
+    "runs/trial_04/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/native/diagnostics.csv",
+      "source_sha256": "62401a73208fab12562a1d41544f9f1dc69c7869b75611e43669fedec90b77eb",
+      "published_sha256": "62401a73208fab12562a1d41544f9f1dc69c7869b75611e43669fedec90b77eb"
+    },
+    "runs/trial_04/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/native/weights.csv",
+      "source_sha256": "f49bba53aeb63ad5e987500d197258d7284d21bb92db756e604105942cc4e261",
+      "published_sha256": "f49bba53aeb63ad5e987500d197258d7284d21bb92db756e604105942cc4e261"
+    },
+    "runs/trial_04/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_04/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/disabled/configuration.json",
+      "source_sha256": "0272bbd033c725bf7f4d169e5ec3c373f3eb40ef27eab4afd05af48997cd3ebc",
+      "published_sha256": "0272bbd033c725bf7f4d169e5ec3c373f3eb40ef27eab4afd05af48997cd3ebc"
+    },
+    "runs/trial_04/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/disabled/spec.json",
+      "source_sha256": "67969fb7327d18167b8229712b91723135441d7ef68bcd0b0169ded327102092",
+      "published_sha256": "67969fb7327d18167b8229712b91723135441d7ef68bcd0b0169ded327102092"
+    },
+    "runs/trial_04/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/disabled/status.json",
+      "source_sha256": "e68f65003c395455ed77e0903b05c4c99f2a524c018acb0362736f1911961f7d",
+      "published_sha256": "e68f65003c395455ed77e0903b05c4c99f2a524c018acb0362736f1911961f7d"
+    },
+    "runs/trial_04/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/disabled/summary.json",
+      "source_sha256": "0cf6a517ec71788c286a1c5b18987e7996800e925350de6120fcc7b761dc2f72",
+      "published_sha256": "0cf6a517ec71788c286a1c5b18987e7996800e925350de6120fcc7b761dc2f72"
+    },
+    "runs/trial_04/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/disabled/history.csv",
+      "source_sha256": "22ab45c5f47d49c5afa14dc2364fed4c1e3a2ed96f232b337be4102cb0564995",
+      "published_sha256": "22ab45c5f47d49c5afa14dc2364fed4c1e3a2ed96f232b337be4102cb0564995"
+    },
+    "runs/trial_04/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/disabled/diagnostics.csv",
+      "source_sha256": "4e4f6c7f037c146a530e5206a3ee7884d666225206692368316dc4fc5009ad32",
+      "published_sha256": "4e4f6c7f037c146a530e5206a3ee7884d666225206692368316dc4fc5009ad32"
+    },
+    "runs/trial_04/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/disabled/weights.csv",
+      "source_sha256": "8d2c71f310780719bc2550ba0d098b8ce99ed4b6d163a7415a22d23f0619822f",
+      "published_sha256": "8d2c71f310780719bc2550ba0d098b8ce99ed4b6d163a7415a22d23f0619822f"
+    },
+    "runs/trial_04/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_04/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_05/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/legacy/configuration.json",
+      "source_sha256": "6ac42848f2ce0a9a178a2a17d5e1154400451ac146ec5c51ed45b7a283911f96",
+      "published_sha256": "6ac42848f2ce0a9a178a2a17d5e1154400451ac146ec5c51ed45b7a283911f96"
+    },
+    "runs/trial_05/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/legacy/spec.json",
+      "source_sha256": "ea134e3897738017402473708ecb6d3bb1c83af3601295d5746abb03246e274e",
+      "published_sha256": "ea134e3897738017402473708ecb6d3bb1c83af3601295d5746abb03246e274e"
+    },
+    "runs/trial_05/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/legacy/status.json",
+      "source_sha256": "dbf6ceecc21675aa10bd0d7a07559b77a745a6c5b4884c239e5fac3a4a936cab",
+      "published_sha256": "dbf6ceecc21675aa10bd0d7a07559b77a745a6c5b4884c239e5fac3a4a936cab"
+    },
+    "runs/trial_05/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/legacy/summary.json",
+      "source_sha256": "b286ed0a694ad4c2170a49a240d9ad0f45a112ffd02ad833f40db227329123ce",
+      "published_sha256": "b286ed0a694ad4c2170a49a240d9ad0f45a112ffd02ad833f40db227329123ce"
+    },
+    "runs/trial_05/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/legacy/history.csv",
+      "source_sha256": "7f5f0cf7af2d6ca39cd0c00ce21f3574d1db70ce754cd0dc70ce1405d8a3ce5d",
+      "published_sha256": "7f5f0cf7af2d6ca39cd0c00ce21f3574d1db70ce754cd0dc70ce1405d8a3ce5d"
+    },
+    "runs/trial_05/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/legacy/diagnostics.csv",
+      "source_sha256": "6794a083a3e9bcc7a023eea4c505c0aab98ca595840ada660fe60cf39311a28d",
+      "published_sha256": "6794a083a3e9bcc7a023eea4c505c0aab98ca595840ada660fe60cf39311a28d"
+    },
+    "runs/trial_05/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/legacy/weights.csv",
+      "source_sha256": "c5f4ae667c2ac7fbe2ef04000df9211d9613de66616457c8050c4e0e9bb87953",
+      "published_sha256": "c5f4ae667c2ac7fbe2ef04000df9211d9613de66616457c8050c4e0e9bb87953"
+    },
+    "runs/trial_05/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_05/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/native/configuration.json",
+      "source_sha256": "178a8075fe35594504670e2f0f5ed80afa38b10183f8069caa18d6bade911450",
+      "published_sha256": "178a8075fe35594504670e2f0f5ed80afa38b10183f8069caa18d6bade911450"
+    },
+    "runs/trial_05/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/native/spec.json",
+      "source_sha256": "44575957ac7c259932f38db24b62eca1f9e9610cb312c8b1e774bd05357dada0",
+      "published_sha256": "44575957ac7c259932f38db24b62eca1f9e9610cb312c8b1e774bd05357dada0"
+    },
+    "runs/trial_05/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/native/status.json",
+      "source_sha256": "beb372d065947de3c34dd0933e9668cbde0cbd6636126dd78d239cb2e8ef4636",
+      "published_sha256": "beb372d065947de3c34dd0933e9668cbde0cbd6636126dd78d239cb2e8ef4636"
+    },
+    "runs/trial_05/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/native/summary.json",
+      "source_sha256": "8de6754834b2f6cc7849b15faca6cf9e9b33e55e506a1fcb40896be1ea765f79",
+      "published_sha256": "8de6754834b2f6cc7849b15faca6cf9e9b33e55e506a1fcb40896be1ea765f79"
+    },
+    "runs/trial_05/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/native/history.csv",
+      "source_sha256": "5d6d83d2a4ea5790e896000bded90cd33eede0824d533572e847258ab4a8f8fb",
+      "published_sha256": "5d6d83d2a4ea5790e896000bded90cd33eede0824d533572e847258ab4a8f8fb"
+    },
+    "runs/trial_05/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/native/diagnostics.csv",
+      "source_sha256": "86fa92dd98a7bd24d74725a4ec2917444d7b91d0c8610baee26868cac7fc21e4",
+      "published_sha256": "86fa92dd98a7bd24d74725a4ec2917444d7b91d0c8610baee26868cac7fc21e4"
+    },
+    "runs/trial_05/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/native/weights.csv",
+      "source_sha256": "a3520b6b3f2beaf0ace7a0dbff6aa198f25436a4c36b801fc56ba27b23bba6f6",
+      "published_sha256": "a3520b6b3f2beaf0ace7a0dbff6aa198f25436a4c36b801fc56ba27b23bba6f6"
+    },
+    "runs/trial_05/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_05/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/disabled/configuration.json",
+      "source_sha256": "0ad1116b6e8494a703e1f6dee52d62bb85c69bf6d8c84297db976d5afefb1349",
+      "published_sha256": "0ad1116b6e8494a703e1f6dee52d62bb85c69bf6d8c84297db976d5afefb1349"
+    },
+    "runs/trial_05/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/disabled/spec.json",
+      "source_sha256": "9740c2a042d5b72e7417263b810fb7d3eaa31b951f44d70fa19c42e3b8b47255",
+      "published_sha256": "9740c2a042d5b72e7417263b810fb7d3eaa31b951f44d70fa19c42e3b8b47255"
+    },
+    "runs/trial_05/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/disabled/status.json",
+      "source_sha256": "82e528e90f4a3ac5ca6d718e1c7f14e6588c0de72735e199d7e9b885ff71081b",
+      "published_sha256": "82e528e90f4a3ac5ca6d718e1c7f14e6588c0de72735e199d7e9b885ff71081b"
+    },
+    "runs/trial_05/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/disabled/summary.json",
+      "source_sha256": "87224991b22a02e69fb92f13e1d83caabe7887402df39de1d266f884fc7a0220",
+      "published_sha256": "87224991b22a02e69fb92f13e1d83caabe7887402df39de1d266f884fc7a0220"
+    },
+    "runs/trial_05/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/disabled/history.csv",
+      "source_sha256": "9b9160d263ef7d248153dc493ff7dfb0721caf868588d9de874df93a671be6d9",
+      "published_sha256": "9b9160d263ef7d248153dc493ff7dfb0721caf868588d9de874df93a671be6d9"
+    },
+    "runs/trial_05/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/disabled/diagnostics.csv",
+      "source_sha256": "8902f0b82babd6d02e50c8e1b8be5ef98769c962bbb044643d460317dba48aca",
+      "published_sha256": "8902f0b82babd6d02e50c8e1b8be5ef98769c962bbb044643d460317dba48aca"
+    },
+    "runs/trial_05/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/disabled/weights.csv",
+      "source_sha256": "7c7a39198d29dce495fdaa1e148cfe961257368b5959d1b78a5243b6cc1cee52",
+      "published_sha256": "7c7a39198d29dce495fdaa1e148cfe961257368b5959d1b78a5243b6cc1cee52"
+    },
+    "runs/trial_05/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_05/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_06/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/legacy/configuration.json",
+      "source_sha256": "8257356e04f5f54811d5ed488087e238bce51fee01d8d75687abec5af3e07e8d",
+      "published_sha256": "8257356e04f5f54811d5ed488087e238bce51fee01d8d75687abec5af3e07e8d"
+    },
+    "runs/trial_06/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/legacy/spec.json",
+      "source_sha256": "6952a52e1630beb762681a54fa3e4f30816cd53fc7f1bb7a05c467466aa5f904",
+      "published_sha256": "6952a52e1630beb762681a54fa3e4f30816cd53fc7f1bb7a05c467466aa5f904"
+    },
+    "runs/trial_06/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/legacy/status.json",
+      "source_sha256": "2ab3334d346bf7222cb1657eb4c7a179e0df74acca60f1a60a07dcb27de1fec0",
+      "published_sha256": "2ab3334d346bf7222cb1657eb4c7a179e0df74acca60f1a60a07dcb27de1fec0"
+    },
+    "runs/trial_06/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/legacy/summary.json",
+      "source_sha256": "d3ec102bb8c02747e1984f1670e094756ac0be885863825d4f406995fbf8aa8d",
+      "published_sha256": "d3ec102bb8c02747e1984f1670e094756ac0be885863825d4f406995fbf8aa8d"
+    },
+    "runs/trial_06/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/legacy/history.csv",
+      "source_sha256": "d3b4e7d6f2a97c956087e229880ea5321065f5f17cbd04460ccd061c68d84665",
+      "published_sha256": "d3b4e7d6f2a97c956087e229880ea5321065f5f17cbd04460ccd061c68d84665"
+    },
+    "runs/trial_06/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/legacy/diagnostics.csv",
+      "source_sha256": "6d14b83fd0eee7cadfe2174cf0127fbf87ebf596b926ee80fa9175f24e1fd162",
+      "published_sha256": "6d14b83fd0eee7cadfe2174cf0127fbf87ebf596b926ee80fa9175f24e1fd162"
+    },
+    "runs/trial_06/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/legacy/weights.csv",
+      "source_sha256": "0706c6bffc871cb8e302711e00a3ce166631c9a24e48404c484f52b811fcc289",
+      "published_sha256": "0706c6bffc871cb8e302711e00a3ce166631c9a24e48404c484f52b811fcc289"
+    },
+    "runs/trial_06/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_06/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/native/configuration.json",
+      "source_sha256": "5a777a15708a7ff7815f5f91ebc509b92b74ca353fd0dd4bc6aa4c1aac772f49",
+      "published_sha256": "5a777a15708a7ff7815f5f91ebc509b92b74ca353fd0dd4bc6aa4c1aac772f49"
+    },
+    "runs/trial_06/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/native/spec.json",
+      "source_sha256": "9e02d37adda79b5e231289de90b2fc3cc084ca9cd535ae922a121c4ba834d26c",
+      "published_sha256": "9e02d37adda79b5e231289de90b2fc3cc084ca9cd535ae922a121c4ba834d26c"
+    },
+    "runs/trial_06/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/native/status.json",
+      "source_sha256": "7043f675c37917946be963d15deced34af817266ae4f7e95973ca6f676fcbfcd",
+      "published_sha256": "7043f675c37917946be963d15deced34af817266ae4f7e95973ca6f676fcbfcd"
+    },
+    "runs/trial_06/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/native/summary.json",
+      "source_sha256": "280e0b433f01ac54cd52f53dd0284912ed07a4b22490f79d380e66667fa3ae18",
+      "published_sha256": "280e0b433f01ac54cd52f53dd0284912ed07a4b22490f79d380e66667fa3ae18"
+    },
+    "runs/trial_06/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/native/history.csv",
+      "source_sha256": "924e9203e16ca026afddcc32c0cc06f6fbaf64da96bd98a2f72f4b745fc2c0f1",
+      "published_sha256": "924e9203e16ca026afddcc32c0cc06f6fbaf64da96bd98a2f72f4b745fc2c0f1"
+    },
+    "runs/trial_06/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/native/diagnostics.csv",
+      "source_sha256": "99f2b4cbf857e811218054c1a2aadce8a90d81fed8ca28f6b5898c74a50ce487",
+      "published_sha256": "99f2b4cbf857e811218054c1a2aadce8a90d81fed8ca28f6b5898c74a50ce487"
+    },
+    "runs/trial_06/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/native/weights.csv",
+      "source_sha256": "b686284f23bcca0cff40298261aeeb21294a3ba825b4347775e42a6d5c59ed79",
+      "published_sha256": "b686284f23bcca0cff40298261aeeb21294a3ba825b4347775e42a6d5c59ed79"
+    },
+    "runs/trial_06/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_06/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/disabled/configuration.json",
+      "source_sha256": "bcadf908c814adffd3fbb6aa942875a2161e64dd075b4a870633df88560d0568",
+      "published_sha256": "bcadf908c814adffd3fbb6aa942875a2161e64dd075b4a870633df88560d0568"
+    },
+    "runs/trial_06/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/disabled/spec.json",
+      "source_sha256": "e4fcef2fa0a9fd5c55bd9659ee48a15f2b6291b85efafbacd0e4a9b98fcc6b54",
+      "published_sha256": "e4fcef2fa0a9fd5c55bd9659ee48a15f2b6291b85efafbacd0e4a9b98fcc6b54"
+    },
+    "runs/trial_06/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/disabled/status.json",
+      "source_sha256": "eb5a3cabc2176c5ab35d29d168784cbf9f899c83ceba06d6fac9bfc46defa1e2",
+      "published_sha256": "eb5a3cabc2176c5ab35d29d168784cbf9f899c83ceba06d6fac9bfc46defa1e2"
+    },
+    "runs/trial_06/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/disabled/summary.json",
+      "source_sha256": "5f9f21e680ca67515de0ce6890d86229113744a0d31139a4d59b8911dab0d46f",
+      "published_sha256": "5f9f21e680ca67515de0ce6890d86229113744a0d31139a4d59b8911dab0d46f"
+    },
+    "runs/trial_06/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/disabled/history.csv",
+      "source_sha256": "24a9b29ae7cd5fb7e736069725edd26c3dba03d10ad63d3dc27bd7180b3e103d",
+      "published_sha256": "24a9b29ae7cd5fb7e736069725edd26c3dba03d10ad63d3dc27bd7180b3e103d"
+    },
+    "runs/trial_06/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/disabled/diagnostics.csv",
+      "source_sha256": "1f9b69fde011917123f610aa008230397b61fcb28ad13432e1962de67bbe7505",
+      "published_sha256": "1f9b69fde011917123f610aa008230397b61fcb28ad13432e1962de67bbe7505"
+    },
+    "runs/trial_06/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/disabled/weights.csv",
+      "source_sha256": "f0f2fa5c21e4fc3f52bae5df0d4a5882ea3f1dc4901792b8418c04d2bbf0ec18",
+      "published_sha256": "f0f2fa5c21e4fc3f52bae5df0d4a5882ea3f1dc4901792b8418c04d2bbf0ec18"
+    },
+    "runs/trial_06/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_06/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_07/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/legacy/configuration.json",
+      "source_sha256": "1df8730231d93d706a854059bbddb398058418116e4c14246e6c5728d90eb8e7",
+      "published_sha256": "1df8730231d93d706a854059bbddb398058418116e4c14246e6c5728d90eb8e7"
+    },
+    "runs/trial_07/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/legacy/spec.json",
+      "source_sha256": "38fee2f4e58895cf6b8fef4ac80b4dd5c5aa343101d623af536615c72490550e",
+      "published_sha256": "38fee2f4e58895cf6b8fef4ac80b4dd5c5aa343101d623af536615c72490550e"
+    },
+    "runs/trial_07/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/legacy/status.json",
+      "source_sha256": "2da9914a817c7052f3b03658c2cb0604dfad8efa6615a6daf371909824d8b944",
+      "published_sha256": "2da9914a817c7052f3b03658c2cb0604dfad8efa6615a6daf371909824d8b944"
+    },
+    "runs/trial_07/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/legacy/summary.json",
+      "source_sha256": "1d3a7e43fc49b4c5649a4870c546aa19549591d711011c60325a8fada8ee4f6f",
+      "published_sha256": "1d3a7e43fc49b4c5649a4870c546aa19549591d711011c60325a8fada8ee4f6f"
+    },
+    "runs/trial_07/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/legacy/history.csv",
+      "source_sha256": "8bda4cb178e29ec6654833e4208c209c83c63037223ca3c57a53722a831f719f",
+      "published_sha256": "8bda4cb178e29ec6654833e4208c209c83c63037223ca3c57a53722a831f719f"
+    },
+    "runs/trial_07/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/legacy/diagnostics.csv",
+      "source_sha256": "cd345543bea7c45f56e52488424b5e50ade90ed0b62d75e83a8a253209134ec5",
+      "published_sha256": "cd345543bea7c45f56e52488424b5e50ade90ed0b62d75e83a8a253209134ec5"
+    },
+    "runs/trial_07/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/legacy/weights.csv",
+      "source_sha256": "b5836ac1977fe560bb9639c71cc4f4e2d09029712b388f639964f50c5e7370fa",
+      "published_sha256": "b5836ac1977fe560bb9639c71cc4f4e2d09029712b388f639964f50c5e7370fa"
+    },
+    "runs/trial_07/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_07/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/native/configuration.json",
+      "source_sha256": "ae9d27006f024e50feb847acc166bb624ca9ebe0a9ee2d296fe0a3f305e4c06e",
+      "published_sha256": "ae9d27006f024e50feb847acc166bb624ca9ebe0a9ee2d296fe0a3f305e4c06e"
+    },
+    "runs/trial_07/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/native/spec.json",
+      "source_sha256": "b7b79ced49ed8abafeba4feb412dd061b07b272485bf66c992b65c228e1e2bc7",
+      "published_sha256": "b7b79ced49ed8abafeba4feb412dd061b07b272485bf66c992b65c228e1e2bc7"
+    },
+    "runs/trial_07/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/native/status.json",
+      "source_sha256": "f240af50266eaaa244964791d78679742d549ed7e03f77a0a2907ba29036e9f8",
+      "published_sha256": "f240af50266eaaa244964791d78679742d549ed7e03f77a0a2907ba29036e9f8"
+    },
+    "runs/trial_07/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/native/summary.json",
+      "source_sha256": "6666f3246eff0b522377028cc0df89a1d5782e2a2247c42095bcd6883d77bc34",
+      "published_sha256": "6666f3246eff0b522377028cc0df89a1d5782e2a2247c42095bcd6883d77bc34"
+    },
+    "runs/trial_07/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/native/history.csv",
+      "source_sha256": "db30af9d1bc1b1b95808dfc4798fee43b9577e4e9db159b5b8640361a820d45d",
+      "published_sha256": "db30af9d1bc1b1b95808dfc4798fee43b9577e4e9db159b5b8640361a820d45d"
+    },
+    "runs/trial_07/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/native/diagnostics.csv",
+      "source_sha256": "57edd5eaba9b255e23292b9e938df3b659364638cb1bd2823f41a24e95609e8c",
+      "published_sha256": "57edd5eaba9b255e23292b9e938df3b659364638cb1bd2823f41a24e95609e8c"
+    },
+    "runs/trial_07/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/native/weights.csv",
+      "source_sha256": "eaa189f937eae98384d29849ca500eb4c545318d8f612ae0dc7b93f044546f74",
+      "published_sha256": "eaa189f937eae98384d29849ca500eb4c545318d8f612ae0dc7b93f044546f74"
+    },
+    "runs/trial_07/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_07/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/disabled/configuration.json",
+      "source_sha256": "a42ebfcf5e56fa7a88bf5b09c5b07dc8429d21ebab7364d3a5036c414b52a033",
+      "published_sha256": "a42ebfcf5e56fa7a88bf5b09c5b07dc8429d21ebab7364d3a5036c414b52a033"
+    },
+    "runs/trial_07/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/disabled/spec.json",
+      "source_sha256": "ba68de3f322ee35d85734e5a84fa8bec8e436f85920aaae50e40d3341e656932",
+      "published_sha256": "ba68de3f322ee35d85734e5a84fa8bec8e436f85920aaae50e40d3341e656932"
+    },
+    "runs/trial_07/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/disabled/status.json",
+      "source_sha256": "48a662a6cce3e9a04d0a5286399d3075a881a42f77aae6ef2a477d38f82b041f",
+      "published_sha256": "48a662a6cce3e9a04d0a5286399d3075a881a42f77aae6ef2a477d38f82b041f"
+    },
+    "runs/trial_07/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/disabled/summary.json",
+      "source_sha256": "feedda8d406a79533acfd7102e2edfdd0c8ddec19a27048392e3c4af65804988",
+      "published_sha256": "feedda8d406a79533acfd7102e2edfdd0c8ddec19a27048392e3c4af65804988"
+    },
+    "runs/trial_07/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/disabled/history.csv",
+      "source_sha256": "8066cb8f1be673070f3e9a8fe3c8d9478d4b5ab5393fe2e9b8b2f576f1c51aa0",
+      "published_sha256": "8066cb8f1be673070f3e9a8fe3c8d9478d4b5ab5393fe2e9b8b2f576f1c51aa0"
+    },
+    "runs/trial_07/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/disabled/diagnostics.csv",
+      "source_sha256": "8737022a37d7809292fffcb512383a75219680ad97753d0bd773bb8f7846b688",
+      "published_sha256": "8737022a37d7809292fffcb512383a75219680ad97753d0bd773bb8f7846b688"
+    },
+    "runs/trial_07/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/disabled/weights.csv",
+      "source_sha256": "a0af64a2ab182f1dfca5b3ef39d8801ea0957ce8810d81e3f5a7c9c494d18fb3",
+      "published_sha256": "a0af64a2ab182f1dfca5b3ef39d8801ea0957ce8810d81e3f5a7c9c494d18fb3"
+    },
+    "runs/trial_07/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_07/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_08/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/legacy/configuration.json",
+      "source_sha256": "78aae6125c1c0d06b6c7a8e07e55346c4bcc21c86e922c452fa09c3ed55afbf6",
+      "published_sha256": "78aae6125c1c0d06b6c7a8e07e55346c4bcc21c86e922c452fa09c3ed55afbf6"
+    },
+    "runs/trial_08/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/legacy/spec.json",
+      "source_sha256": "787263ab3673c7694e2da3cd27cc9cf22d9e674e72630beaee414fc3549864c6",
+      "published_sha256": "787263ab3673c7694e2da3cd27cc9cf22d9e674e72630beaee414fc3549864c6"
+    },
+    "runs/trial_08/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/legacy/status.json",
+      "source_sha256": "c12b3a1abf9b878992ce5ae0ee6bdc1cd2e0b4d4f697e5a2d56a040e788ea6e2",
+      "published_sha256": "c12b3a1abf9b878992ce5ae0ee6bdc1cd2e0b4d4f697e5a2d56a040e788ea6e2"
+    },
+    "runs/trial_08/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/legacy/summary.json",
+      "source_sha256": "f17d8a3012912e6d6efd96029a0cdd253bc87a917aaddc2282b93f215a460744",
+      "published_sha256": "f17d8a3012912e6d6efd96029a0cdd253bc87a917aaddc2282b93f215a460744"
+    },
+    "runs/trial_08/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/legacy/history.csv",
+      "source_sha256": "1906842c6a4d0cb2d504139e97827e7523486afeaa17fc61ba5895b010ceaea4",
+      "published_sha256": "1906842c6a4d0cb2d504139e97827e7523486afeaa17fc61ba5895b010ceaea4"
+    },
+    "runs/trial_08/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/legacy/diagnostics.csv",
+      "source_sha256": "41076ce48f07ec4395a6ebb0303f2ef87f286e0ddab1efaafbb14f306f367c3a",
+      "published_sha256": "41076ce48f07ec4395a6ebb0303f2ef87f286e0ddab1efaafbb14f306f367c3a"
+    },
+    "runs/trial_08/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/legacy/weights.csv",
+      "source_sha256": "7aad97f8c0575d3ddbb8b2955ef6cbb695f746283ef279cb88f35ddfb01d5bc9",
+      "published_sha256": "7aad97f8c0575d3ddbb8b2955ef6cbb695f746283ef279cb88f35ddfb01d5bc9"
+    },
+    "runs/trial_08/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_08/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/native/configuration.json",
+      "source_sha256": "2951b6ef32c40e3b6017bb4d04cce427ebc8aceaed206c743db3bd96d1c923c0",
+      "published_sha256": "2951b6ef32c40e3b6017bb4d04cce427ebc8aceaed206c743db3bd96d1c923c0"
+    },
+    "runs/trial_08/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/native/spec.json",
+      "source_sha256": "d483694db38b7a28aa0c4b8b95ca5d7d83a6ea79fbc028a233d8bde48eaccd1f",
+      "published_sha256": "d483694db38b7a28aa0c4b8b95ca5d7d83a6ea79fbc028a233d8bde48eaccd1f"
+    },
+    "runs/trial_08/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/native/status.json",
+      "source_sha256": "b31448e7c8b2e87251e634d6a10df66e896e1bd429958919eba37c9149fdcf55",
+      "published_sha256": "b31448e7c8b2e87251e634d6a10df66e896e1bd429958919eba37c9149fdcf55"
+    },
+    "runs/trial_08/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/native/summary.json",
+      "source_sha256": "31e854aeb867c500a7f2c623f79cf51677bac65c376b3259960dd83f45a07658",
+      "published_sha256": "31e854aeb867c500a7f2c623f79cf51677bac65c376b3259960dd83f45a07658"
+    },
+    "runs/trial_08/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/native/history.csv",
+      "source_sha256": "cc5192865869ee3f9673fb1187511140255eba42f15a367c9e744b4b7f89d6a2",
+      "published_sha256": "cc5192865869ee3f9673fb1187511140255eba42f15a367c9e744b4b7f89d6a2"
+    },
+    "runs/trial_08/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/native/diagnostics.csv",
+      "source_sha256": "12c696a1f05eb019e952742b453ee0393f7299995e57ce78d6a19bba7d5b65b2",
+      "published_sha256": "12c696a1f05eb019e952742b453ee0393f7299995e57ce78d6a19bba7d5b65b2"
+    },
+    "runs/trial_08/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/native/weights.csv",
+      "source_sha256": "3c3a6aaaf5331a78b11b94678dbc5e2eac15280c8ccac0790ad9827b09064a31",
+      "published_sha256": "3c3a6aaaf5331a78b11b94678dbc5e2eac15280c8ccac0790ad9827b09064a31"
+    },
+    "runs/trial_08/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_08/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/disabled/configuration.json",
+      "source_sha256": "8a47abb846b22a4cb58ca567bb600c6be581db26698092f5021325bbb7cb7337",
+      "published_sha256": "8a47abb846b22a4cb58ca567bb600c6be581db26698092f5021325bbb7cb7337"
+    },
+    "runs/trial_08/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/disabled/spec.json",
+      "source_sha256": "cd2774fa9ff3196d561db43f5be75a64b88c31d67df5bf8c2961c2c366c67f2b",
+      "published_sha256": "cd2774fa9ff3196d561db43f5be75a64b88c31d67df5bf8c2961c2c366c67f2b"
+    },
+    "runs/trial_08/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/disabled/status.json",
+      "source_sha256": "02e7cd8a4ca35b01e62276997bb55be8e46ec8dbc8551702afc95a250d8de34b",
+      "published_sha256": "02e7cd8a4ca35b01e62276997bb55be8e46ec8dbc8551702afc95a250d8de34b"
+    },
+    "runs/trial_08/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/disabled/summary.json",
+      "source_sha256": "4dac69bea1af722e6dd7561a819dddceeab6e9343b9e1c89887c155b0ac3f02d",
+      "published_sha256": "4dac69bea1af722e6dd7561a819dddceeab6e9343b9e1c89887c155b0ac3f02d"
+    },
+    "runs/trial_08/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/disabled/history.csv",
+      "source_sha256": "56f89f177dbc36aa1534b4eaf53fd9de1ee30ae3cc59a77c72e560d85fd12746",
+      "published_sha256": "56f89f177dbc36aa1534b4eaf53fd9de1ee30ae3cc59a77c72e560d85fd12746"
+    },
+    "runs/trial_08/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/disabled/diagnostics.csv",
+      "source_sha256": "e9a810da83d78565d8b221bb2627e30bf08bf03db7985bb44048596fcc040458",
+      "published_sha256": "e9a810da83d78565d8b221bb2627e30bf08bf03db7985bb44048596fcc040458"
+    },
+    "runs/trial_08/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/disabled/weights.csv",
+      "source_sha256": "69fb186cda27b9fc36f2541eea2461e916b53764c83b987f149ca73b52ed6a85",
+      "published_sha256": "69fb186cda27b9fc36f2541eea2461e916b53764c83b987f149ca73b52ed6a85"
+    },
+    "runs/trial_08/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_08/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_09/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/legacy/configuration.json",
+      "source_sha256": "d233e196e9f50a8ebc442d0f7fa08f75778f0b2c8b572a34ac2645e418c6181d",
+      "published_sha256": "d233e196e9f50a8ebc442d0f7fa08f75778f0b2c8b572a34ac2645e418c6181d"
+    },
+    "runs/trial_09/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/legacy/spec.json",
+      "source_sha256": "df93a08e55fe37e165a611701e658fc475ee1f565101abdf341cfc6d779967b1",
+      "published_sha256": "df93a08e55fe37e165a611701e658fc475ee1f565101abdf341cfc6d779967b1"
+    },
+    "runs/trial_09/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/legacy/status.json",
+      "source_sha256": "8479e9cb1b6a89be541ec59d423ec9ef26c923941b7fe993b231b8cf3c1dcbee",
+      "published_sha256": "8479e9cb1b6a89be541ec59d423ec9ef26c923941b7fe993b231b8cf3c1dcbee"
+    },
+    "runs/trial_09/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/legacy/summary.json",
+      "source_sha256": "7190312c9e9e9bbba5a15693be243d78537912e281df25492a3f7f6911d829ba",
+      "published_sha256": "7190312c9e9e9bbba5a15693be243d78537912e281df25492a3f7f6911d829ba"
+    },
+    "runs/trial_09/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/legacy/history.csv",
+      "source_sha256": "7dc8ebaeb387cdc545f9fbb3c36dd78124afb8c602c95b71fde3a20e7e130c22",
+      "published_sha256": "7dc8ebaeb387cdc545f9fbb3c36dd78124afb8c602c95b71fde3a20e7e130c22"
+    },
+    "runs/trial_09/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/legacy/diagnostics.csv",
+      "source_sha256": "5e0718586bd6aea46b409459570ea020a41b0976676d32f5985d6a64d53f8361",
+      "published_sha256": "5e0718586bd6aea46b409459570ea020a41b0976676d32f5985d6a64d53f8361"
+    },
+    "runs/trial_09/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/legacy/weights.csv",
+      "source_sha256": "08fe7462dbb7cba4dfc05d83fbcc04196d9e15ae4c42e5070186b161d2427f7e",
+      "published_sha256": "08fe7462dbb7cba4dfc05d83fbcc04196d9e15ae4c42e5070186b161d2427f7e"
+    },
+    "runs/trial_09/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_09/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/native/configuration.json",
+      "source_sha256": "252b00daf144313c62e0839e8055ce70502fceb5e04d927700e4ffd4c4633664",
+      "published_sha256": "252b00daf144313c62e0839e8055ce70502fceb5e04d927700e4ffd4c4633664"
+    },
+    "runs/trial_09/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/native/spec.json",
+      "source_sha256": "5c26fe551bc3d085456cc1c7c03cf32389a7395a6e610499d7c7c01737bffa40",
+      "published_sha256": "5c26fe551bc3d085456cc1c7c03cf32389a7395a6e610499d7c7c01737bffa40"
+    },
+    "runs/trial_09/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/native/status.json",
+      "source_sha256": "280b7e550bd2d7225bb8672422a7eebe2a3bc50735957439d44df72158fe60f5",
+      "published_sha256": "280b7e550bd2d7225bb8672422a7eebe2a3bc50735957439d44df72158fe60f5"
+    },
+    "runs/trial_09/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/native/summary.json",
+      "source_sha256": "e62b5b0e95a093f7c57ffa4cb618bfe006c9de594b91cb95263e22394f131cc1",
+      "published_sha256": "e62b5b0e95a093f7c57ffa4cb618bfe006c9de594b91cb95263e22394f131cc1"
+    },
+    "runs/trial_09/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/native/history.csv",
+      "source_sha256": "150af05bb50ff6e87516937527168e1ea4250e385b65fc601eca6f54cc14b454",
+      "published_sha256": "150af05bb50ff6e87516937527168e1ea4250e385b65fc601eca6f54cc14b454"
+    },
+    "runs/trial_09/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/native/diagnostics.csv",
+      "source_sha256": "e8f2cd8a8b70cdf860fff352e454781892a20a5a4fde30450e5c1355743496d8",
+      "published_sha256": "e8f2cd8a8b70cdf860fff352e454781892a20a5a4fde30450e5c1355743496d8"
+    },
+    "runs/trial_09/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/native/weights.csv",
+      "source_sha256": "eb24dba2a6d01eec2437b0c5fc621e75deb657fa855e8c72739b0ed5ede14f9b",
+      "published_sha256": "eb24dba2a6d01eec2437b0c5fc621e75deb657fa855e8c72739b0ed5ede14f9b"
+    },
+    "runs/trial_09/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_09/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/disabled/configuration.json",
+      "source_sha256": "06b6f128ef44bdfb56effa1b248b641dc2a1d64c6e17239718bd2f261d73af3e",
+      "published_sha256": "06b6f128ef44bdfb56effa1b248b641dc2a1d64c6e17239718bd2f261d73af3e"
+    },
+    "runs/trial_09/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/disabled/spec.json",
+      "source_sha256": "6f0feb4eedd2aa0410f3279e8582a59f6f3115f1f14b7acaf029c6bb689d01b8",
+      "published_sha256": "6f0feb4eedd2aa0410f3279e8582a59f6f3115f1f14b7acaf029c6bb689d01b8"
+    },
+    "runs/trial_09/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/disabled/status.json",
+      "source_sha256": "38adef5d65f739f8e00a13327d30df4db32af532435c55dc1180ae47b20e2a1b",
+      "published_sha256": "38adef5d65f739f8e00a13327d30df4db32af532435c55dc1180ae47b20e2a1b"
+    },
+    "runs/trial_09/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/disabled/summary.json",
+      "source_sha256": "808f0b60beb2501d5981304081eefb6c9ff578222dbe36fa55297110854f8984",
+      "published_sha256": "808f0b60beb2501d5981304081eefb6c9ff578222dbe36fa55297110854f8984"
+    },
+    "runs/trial_09/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/disabled/history.csv",
+      "source_sha256": "60ab7608625e76153c2b47bd8649b15403f871019771ea425bc204a94a50a069",
+      "published_sha256": "60ab7608625e76153c2b47bd8649b15403f871019771ea425bc204a94a50a069"
+    },
+    "runs/trial_09/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/disabled/diagnostics.csv",
+      "source_sha256": "88db7359a3ab10def5cabee7ace7eb53e4901d40a0398b1b8e4af7f89cf0a2ad",
+      "published_sha256": "88db7359a3ab10def5cabee7ace7eb53e4901d40a0398b1b8e4af7f89cf0a2ad"
+    },
+    "runs/trial_09/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/disabled/weights.csv",
+      "source_sha256": "c020c4b566a691bd8186dc0e0640aa0f5ef9c96577b74a6fe2c1c43738a798d8",
+      "published_sha256": "c020c4b566a691bd8186dc0e0640aa0f5ef9c96577b74a6fe2c1c43738a798d8"
+    },
+    "runs/trial_09/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_09/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_10/legacy/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/legacy/configuration.json",
+      "source_sha256": "5b07d961a9437fabf1a205e499eab3442f4de7920038afa8187b991debbdbc3e",
+      "published_sha256": "5b07d961a9437fabf1a205e499eab3442f4de7920038afa8187b991debbdbc3e"
+    },
+    "runs/trial_10/legacy/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/legacy/spec.json",
+      "source_sha256": "da326ef3a1c1111575dc94959c0409e68503bcba4f7342cb25f6694418a9b21e",
+      "published_sha256": "da326ef3a1c1111575dc94959c0409e68503bcba4f7342cb25f6694418a9b21e"
+    },
+    "runs/trial_10/legacy/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/legacy/status.json",
+      "source_sha256": "c4571252e4f842f3cd22b8574ddaaa580ba403ce1fe59aa7997750e161f7edb6",
+      "published_sha256": "c4571252e4f842f3cd22b8574ddaaa580ba403ce1fe59aa7997750e161f7edb6"
+    },
+    "runs/trial_10/legacy/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/legacy/summary.json",
+      "source_sha256": "e1208323c6c916fbaced3099396e1f0924050dcb29330ad0c26f5cef1587d206",
+      "published_sha256": "e1208323c6c916fbaced3099396e1f0924050dcb29330ad0c26f5cef1587d206"
+    },
+    "runs/trial_10/legacy/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/legacy/history.csv",
+      "source_sha256": "7bcf0d3b262d31a34ed588583e21d1d4878a2536b0bc2affbd9dba62de08815f",
+      "published_sha256": "7bcf0d3b262d31a34ed588583e21d1d4878a2536b0bc2affbd9dba62de08815f"
+    },
+    "runs/trial_10/legacy/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/legacy/diagnostics.csv",
+      "source_sha256": "f5aa7789bdda17d1fb36a28d1f1b0115fd92c0398d1f3a6d3d735b32db073095",
+      "published_sha256": "f5aa7789bdda17d1fb36a28d1f1b0115fd92c0398d1f3a6d3d735b32db073095"
+    },
+    "runs/trial_10/legacy/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/legacy/weights.csv",
+      "source_sha256": "275436790fef141f0752eb13589a5cd8cb186ed1839d6736ec0b9288f50ea050",
+      "published_sha256": "275436790fef141f0752eb13589a5cd8cb186ed1839d6736ec0b9288f50ea050"
+    },
+    "runs/trial_10/legacy/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/legacy/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_10/native/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/native/configuration.json",
+      "source_sha256": "6406725a172809eaddf26c425ce4498b526be9c38a0401ff434894b3028347ea",
+      "published_sha256": "6406725a172809eaddf26c425ce4498b526be9c38a0401ff434894b3028347ea"
+    },
+    "runs/trial_10/native/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/native/spec.json",
+      "source_sha256": "f085d6028f75fbba777801ea5493badad9656b873571ed6d51f3573bc9112062",
+      "published_sha256": "f085d6028f75fbba777801ea5493badad9656b873571ed6d51f3573bc9112062"
+    },
+    "runs/trial_10/native/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/native/status.json",
+      "source_sha256": "0aa67d2cc8cdb22cda0e47bed2937ba326cd921212ed3a6afffb51f240b5160f",
+      "published_sha256": "0aa67d2cc8cdb22cda0e47bed2937ba326cd921212ed3a6afffb51f240b5160f"
+    },
+    "runs/trial_10/native/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/native/summary.json",
+      "source_sha256": "1cb38429c850558faf30eea065683fb7bfeb916e8972427a2dd88bac7d9cef3f",
+      "published_sha256": "1cb38429c850558faf30eea065683fb7bfeb916e8972427a2dd88bac7d9cef3f"
+    },
+    "runs/trial_10/native/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/native/history.csv",
+      "source_sha256": "ed8ecdbd2006d755491cd16d7d132f97ac2fdf163567a2b54ee90623b33cb65d",
+      "published_sha256": "ed8ecdbd2006d755491cd16d7d132f97ac2fdf163567a2b54ee90623b33cb65d"
+    },
+    "runs/trial_10/native/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/native/diagnostics.csv",
+      "source_sha256": "35f659e9788d89a97b18181d060f9e312542d74ecbbcd778abc1a6b08ba77da8",
+      "published_sha256": "35f659e9788d89a97b18181d060f9e312542d74ecbbcd778abc1a6b08ba77da8"
+    },
+    "runs/trial_10/native/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/native/weights.csv",
+      "source_sha256": "14787e2b2e2bbbb954d0ba5d92eca069c5eb375a3db2be93f6df07c09e8ed785",
+      "published_sha256": "14787e2b2e2bbbb954d0ba5d92eca069c5eb375a3db2be93f6df07c09e8ed785"
+    },
+    "runs/trial_10/native/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/native/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_10/disabled/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/disabled/configuration.json",
+      "source_sha256": "4d85b5058646d809c68c19f326d8f9fdb87ea4749ef8b4cd6b0b519bc64e81c7",
+      "published_sha256": "4d85b5058646d809c68c19f326d8f9fdb87ea4749ef8b4cd6b0b519bc64e81c7"
+    },
+    "runs/trial_10/disabled/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/disabled/spec.json",
+      "source_sha256": "93c77f2a5baa886d4b5ce75a47196a447f832a353bef126418097cc93a26201f",
+      "published_sha256": "93c77f2a5baa886d4b5ce75a47196a447f832a353bef126418097cc93a26201f"
+    },
+    "runs/trial_10/disabled/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/disabled/status.json",
+      "source_sha256": "a6462f3489a5c9558f140e287f3b40307129aab7a22b30f4f7acad0ef4bcbace",
+      "published_sha256": "a6462f3489a5c9558f140e287f3b40307129aab7a22b30f4f7acad0ef4bcbace"
+    },
+    "runs/trial_10/disabled/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/disabled/summary.json",
+      "source_sha256": "93ca006bd31e5e669657ddce84f719705e695f104ea69c0e1531e18fe6b89790",
+      "published_sha256": "93ca006bd31e5e669657ddce84f719705e695f104ea69c0e1531e18fe6b89790"
+    },
+    "runs/trial_10/disabled/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/disabled/history.csv",
+      "source_sha256": "eec2c82063d437ddc03d0ced80e109ffb0732c461ae892397d1043c43c183df1",
+      "published_sha256": "eec2c82063d437ddc03d0ced80e109ffb0732c461ae892397d1043c43c183df1"
+    },
+    "runs/trial_10/disabled/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/disabled/diagnostics.csv",
+      "source_sha256": "596b4b77d5fc3d1acfaf120e35a75ca5f229c96a5a91a8c02bfb1759354734da",
+      "published_sha256": "596b4b77d5fc3d1acfaf120e35a75ca5f229c96a5a91a8c02bfb1759354734da"
+    },
+    "runs/trial_10/disabled/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/disabled/weights.csv",
+      "source_sha256": "44c7033f5a61053b280f3215426a137c8f59b3b850793e90f799fa2ae53c7d51",
+      "published_sha256": "44c7033f5a61053b280f3215426a137c8f59b3b850793e90f799fa2ae53c7d51"
+    },
+    "runs/trial_10/disabled/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/baseline_snapshot/noise_0/seed_0/trial_10/disabled/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "provenance/workaround/executed_runner.py": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/executed_runner.py",
+      "source_sha256": "59d8588e19f2b617ad833cb575b0bb01523f820f3ac83477d526367e1095ff19",
+      "published_sha256": "59d8588e19f2b617ad833cb575b0bb01523f820f3ac83477d526367e1095ff19"
+    },
+    "provenance/workaround/executed_plot_training_comparison.py": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/executed_plot_training_comparison.py",
+      "source_sha256": "96e3890de524aa90d17d4b79ca214cf3963dac84332b69fedce4539093240ab6",
+      "published_sha256": "96e3890de524aa90d17d4b79ca214cf3963dac84332b69fedce4539093240ab6"
+    },
+    "provenance/workaround/campaign.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/campaign.json",
+      "source_sha256": "d0cde620fb87649eace282f426d9d9825cee946af136dab46915c8c452dff136",
+      "published_sha256": "d0cde620fb87649eace282f426d9d9825cee946af136dab46915c8c452dff136"
+    },
+    "runs/trial_01/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_01/workaround/configuration.json",
+      "source_sha256": "04c728388a345d23fd79a6297109d36caa889fbedc001b51a45f84f0fae949a2",
+      "published_sha256": "04c728388a345d23fd79a6297109d36caa889fbedc001b51a45f84f0fae949a2"
+    },
+    "runs/trial_01/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_01/workaround/spec.json",
+      "source_sha256": "224fe0e55bcf2aade2d2effd41d81c78a232d1e3dd4a08e9d779b644db0de099",
+      "published_sha256": "224fe0e55bcf2aade2d2effd41d81c78a232d1e3dd4a08e9d779b644db0de099"
+    },
+    "runs/trial_01/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_01/workaround/status.json",
+      "source_sha256": "22718ec8f7362e82071542e1a9f0f1b0e151765e416693067eaaa368a087d6d7",
+      "published_sha256": "22718ec8f7362e82071542e1a9f0f1b0e151765e416693067eaaa368a087d6d7"
+    },
+    "runs/trial_01/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_01/workaround/summary.json",
+      "source_sha256": "00a557a86858e63456d6434352390605d3d6e5dbadccaeb6b34d786e27efefc6",
+      "published_sha256": "00a557a86858e63456d6434352390605d3d6e5dbadccaeb6b34d786e27efefc6"
+    },
+    "runs/trial_01/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_01/workaround/history.csv",
+      "source_sha256": "c1f57a1e394d669980d92081bde0d851b4100d04c3a2fbe8a37fd9ba76f897a7",
+      "published_sha256": "c1f57a1e394d669980d92081bde0d851b4100d04c3a2fbe8a37fd9ba76f897a7"
+    },
+    "runs/trial_01/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_01/workaround/diagnostics.csv",
+      "source_sha256": "d8de6077f1207ac0f91101c49d1fe304857db8ab8343fa0e049ba0088c4ca518",
+      "published_sha256": "d8de6077f1207ac0f91101c49d1fe304857db8ab8343fa0e049ba0088c4ca518"
+    },
+    "runs/trial_01/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_01/workaround/weights.csv",
+      "source_sha256": "6ceb01de215bb1e65b6207fdec6c819b3a726909294c092aa095cf4c480b5596",
+      "published_sha256": "6ceb01de215bb1e65b6207fdec6c819b3a726909294c092aa095cf4c480b5596"
+    },
+    "runs/trial_01/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_01/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_02/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_02/workaround/configuration.json",
+      "source_sha256": "989e2deb64c5010b75fbec82ab4c57c1ffc947b76e2b88324deab7993d1c5ec2",
+      "published_sha256": "989e2deb64c5010b75fbec82ab4c57c1ffc947b76e2b88324deab7993d1c5ec2"
+    },
+    "runs/trial_02/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_02/workaround/spec.json",
+      "source_sha256": "d4b89ba11c036bca0bb3a5a8edc19d7db6ea9fec6e80a14987b4b274df162996",
+      "published_sha256": "d4b89ba11c036bca0bb3a5a8edc19d7db6ea9fec6e80a14987b4b274df162996"
+    },
+    "runs/trial_02/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_02/workaround/status.json",
+      "source_sha256": "edb7e2f25db07539f4285b841424d9377239c542aaaabde9b010fb6c71ff9e9f",
+      "published_sha256": "edb7e2f25db07539f4285b841424d9377239c542aaaabde9b010fb6c71ff9e9f"
+    },
+    "runs/trial_02/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_02/workaround/summary.json",
+      "source_sha256": "2f9949d6b7489025d68f1fd7928092d87404dc91ae8e279b051016c748f84f2c",
+      "published_sha256": "2f9949d6b7489025d68f1fd7928092d87404dc91ae8e279b051016c748f84f2c"
+    },
+    "runs/trial_02/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_02/workaround/history.csv",
+      "source_sha256": "d6a76d71b69b5d1f44218f74d7d9aff77b762d0dbc837a726bb0cf508f77cb93",
+      "published_sha256": "d6a76d71b69b5d1f44218f74d7d9aff77b762d0dbc837a726bb0cf508f77cb93"
+    },
+    "runs/trial_02/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_02/workaround/diagnostics.csv",
+      "source_sha256": "5d45cdf9cb378c35ad280567cf05a5934eac48c69912838a64b72da2ae7af8d4",
+      "published_sha256": "5d45cdf9cb378c35ad280567cf05a5934eac48c69912838a64b72da2ae7af8d4"
+    },
+    "runs/trial_02/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_02/workaround/weights.csv",
+      "source_sha256": "e672b090ac69558842bc0d5ef54282f9360cd5b573657c2776d628d842a14e3b",
+      "published_sha256": "e672b090ac69558842bc0d5ef54282f9360cd5b573657c2776d628d842a14e3b"
+    },
+    "runs/trial_02/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_02/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_03/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_03/workaround/configuration.json",
+      "source_sha256": "5e1965d8c9ad366ad3448396dc42bad342e7bc6229190d6d1035484b302bfad3",
+      "published_sha256": "5e1965d8c9ad366ad3448396dc42bad342e7bc6229190d6d1035484b302bfad3"
+    },
+    "runs/trial_03/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_03/workaround/spec.json",
+      "source_sha256": "d9b6e31d41455f04151299ba1669c232f523ed6525957828f31f0488d46a2a03",
+      "published_sha256": "d9b6e31d41455f04151299ba1669c232f523ed6525957828f31f0488d46a2a03"
+    },
+    "runs/trial_03/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_03/workaround/status.json",
+      "source_sha256": "061b5d9553f4b008b8e8a1aa6b1e6d84abc21b6aa453b6683e8db11c37f71804",
+      "published_sha256": "061b5d9553f4b008b8e8a1aa6b1e6d84abc21b6aa453b6683e8db11c37f71804"
+    },
+    "runs/trial_03/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_03/workaround/summary.json",
+      "source_sha256": "345c3406f3da0063b0a16877175a073976fd4fbd247abd6ed0ee386c015d39b5",
+      "published_sha256": "345c3406f3da0063b0a16877175a073976fd4fbd247abd6ed0ee386c015d39b5"
+    },
+    "runs/trial_03/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_03/workaround/history.csv",
+      "source_sha256": "31ab6e17f36a5c6df077cb940952ff91ea1717bb4b5efe201d330fc3ff296599",
+      "published_sha256": "31ab6e17f36a5c6df077cb940952ff91ea1717bb4b5efe201d330fc3ff296599"
+    },
+    "runs/trial_03/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_03/workaround/diagnostics.csv",
+      "source_sha256": "2aee98b5b977458a173a04055385ddad25c903c0253745a6f19157d07402c5c5",
+      "published_sha256": "2aee98b5b977458a173a04055385ddad25c903c0253745a6f19157d07402c5c5"
+    },
+    "runs/trial_03/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_03/workaround/weights.csv",
+      "source_sha256": "7a6f1d0b8a86ce116f5ae553a09dd6761a6f369f2caf0e0aaf2c8e1adf22f896",
+      "published_sha256": "7a6f1d0b8a86ce116f5ae553a09dd6761a6f369f2caf0e0aaf2c8e1adf22f896"
+    },
+    "runs/trial_03/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_03/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_04/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_04/workaround/configuration.json",
+      "source_sha256": "3f2e5ee8a040c0f7b28e064df86858eab1f3ddf6e40b31bff36d90eeac2f9892",
+      "published_sha256": "3f2e5ee8a040c0f7b28e064df86858eab1f3ddf6e40b31bff36d90eeac2f9892"
+    },
+    "runs/trial_04/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_04/workaround/spec.json",
+      "source_sha256": "c6f9e0396547d6340bc445cc377ea27bf8c7b99d7954aedab4b35a46501dbf8e",
+      "published_sha256": "c6f9e0396547d6340bc445cc377ea27bf8c7b99d7954aedab4b35a46501dbf8e"
+    },
+    "runs/trial_04/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_04/workaround/status.json",
+      "source_sha256": "c529b2142ffc84466c0a18feaa1f089c128f90a6d07b517a577c539a1381c9d5",
+      "published_sha256": "c529b2142ffc84466c0a18feaa1f089c128f90a6d07b517a577c539a1381c9d5"
+    },
+    "runs/trial_04/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_04/workaround/summary.json",
+      "source_sha256": "64cc3d1726c9918e7b34a79161e49b7647ec88d317038e34fcc14e1653625bc0",
+      "published_sha256": "64cc3d1726c9918e7b34a79161e49b7647ec88d317038e34fcc14e1653625bc0"
+    },
+    "runs/trial_04/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_04/workaround/history.csv",
+      "source_sha256": "ee793d14658abbc051927811b6771f85eb013323d7db57ad8337f8f7060f0f31",
+      "published_sha256": "ee793d14658abbc051927811b6771f85eb013323d7db57ad8337f8f7060f0f31"
+    },
+    "runs/trial_04/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_04/workaround/diagnostics.csv",
+      "source_sha256": "31551d05bb3df177aa14483f7dcbf0199ee2c9acb37388fef05de2a75318849f",
+      "published_sha256": "31551d05bb3df177aa14483f7dcbf0199ee2c9acb37388fef05de2a75318849f"
+    },
+    "runs/trial_04/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_04/workaround/weights.csv",
+      "source_sha256": "dd8b7f52901cd427045a35ddb0bde0e4c9f1fbafe5660cb1d0e7937d06f0f4dd",
+      "published_sha256": "dd8b7f52901cd427045a35ddb0bde0e4c9f1fbafe5660cb1d0e7937d06f0f4dd"
+    },
+    "runs/trial_04/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_04/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_05/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_05/workaround/configuration.json",
+      "source_sha256": "31aa0dc162340ba3ff809c3a564c1a573acb506bc8130f746b367efa19b81cf6",
+      "published_sha256": "31aa0dc162340ba3ff809c3a564c1a573acb506bc8130f746b367efa19b81cf6"
+    },
+    "runs/trial_05/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_05/workaround/spec.json",
+      "source_sha256": "74973fde633004257a81cee382362a25bb02daf13ce47a8470695c447c3d6876",
+      "published_sha256": "74973fde633004257a81cee382362a25bb02daf13ce47a8470695c447c3d6876"
+    },
+    "runs/trial_05/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_05/workaround/status.json",
+      "source_sha256": "8b930ec051e63c8b1789ff7d358cb98930a84d0820e3e3424273afd39563f308",
+      "published_sha256": "8b930ec051e63c8b1789ff7d358cb98930a84d0820e3e3424273afd39563f308"
+    },
+    "runs/trial_05/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_05/workaround/summary.json",
+      "source_sha256": "5600d28a9978549168d5558225ba15c6cae133a814a7e6e3b7ce96104e996334",
+      "published_sha256": "5600d28a9978549168d5558225ba15c6cae133a814a7e6e3b7ce96104e996334"
+    },
+    "runs/trial_05/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_05/workaround/history.csv",
+      "source_sha256": "bccb593aa9ef07cf98f97d3d679c923d9f53a4115987b8a4b6b19a3bd650f043",
+      "published_sha256": "bccb593aa9ef07cf98f97d3d679c923d9f53a4115987b8a4b6b19a3bd650f043"
+    },
+    "runs/trial_05/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_05/workaround/diagnostics.csv",
+      "source_sha256": "b7c60292bf8e8fb7c15621dc92fd698dc057475ae89be4b689dd4269f408e852",
+      "published_sha256": "b7c60292bf8e8fb7c15621dc92fd698dc057475ae89be4b689dd4269f408e852"
+    },
+    "runs/trial_05/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_05/workaround/weights.csv",
+      "source_sha256": "8aefb6e9f974d520bf92e2c7578736813f441ec0b23d1324ad35dbcd8baae4e1",
+      "published_sha256": "8aefb6e9f974d520bf92e2c7578736813f441ec0b23d1324ad35dbcd8baae4e1"
+    },
+    "runs/trial_05/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_05/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_06/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_06/workaround/configuration.json",
+      "source_sha256": "9923792740743f285b3b59e2b20b80de14b90209a54bd78c3ff093c0b19afeb7",
+      "published_sha256": "9923792740743f285b3b59e2b20b80de14b90209a54bd78c3ff093c0b19afeb7"
+    },
+    "runs/trial_06/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_06/workaround/spec.json",
+      "source_sha256": "c37f09d4d4704f3c6c537cfc5fe708634febbbf5467d97b40be0afa1335f4375",
+      "published_sha256": "c37f09d4d4704f3c6c537cfc5fe708634febbbf5467d97b40be0afa1335f4375"
+    },
+    "runs/trial_06/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_06/workaround/status.json",
+      "source_sha256": "df669d64c77cfc8023ca7dbff9ee09a5d3009e6cac5589dc71138d3e5c402792",
+      "published_sha256": "df669d64c77cfc8023ca7dbff9ee09a5d3009e6cac5589dc71138d3e5c402792"
+    },
+    "runs/trial_06/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_06/workaround/summary.json",
+      "source_sha256": "6d075d264a2512a6cb7e898b1e484e9d013b482ff47cfb506d1eb59f7265e3f7",
+      "published_sha256": "6d075d264a2512a6cb7e898b1e484e9d013b482ff47cfb506d1eb59f7265e3f7"
+    },
+    "runs/trial_06/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_06/workaround/history.csv",
+      "source_sha256": "2679488659ffa040d2132f4e72ddb25070488dec17a91d5aaf9bc78e7a0434e3",
+      "published_sha256": "2679488659ffa040d2132f4e72ddb25070488dec17a91d5aaf9bc78e7a0434e3"
+    },
+    "runs/trial_06/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_06/workaround/diagnostics.csv",
+      "source_sha256": "86aef227ed3c87ea4fd83a139bf17e4ec384953347759f13172439b5500e5603",
+      "published_sha256": "86aef227ed3c87ea4fd83a139bf17e4ec384953347759f13172439b5500e5603"
+    },
+    "runs/trial_06/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_06/workaround/weights.csv",
+      "source_sha256": "54644b1f55239629721f67496c087a00b7db96a8e4a2d4341272a9a4b3573260",
+      "published_sha256": "54644b1f55239629721f67496c087a00b7db96a8e4a2d4341272a9a4b3573260"
+    },
+    "runs/trial_06/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_06/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_07/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_07/workaround/configuration.json",
+      "source_sha256": "980252f8562ab243077d0c101ae05a74f9cc6abe20e4faebdfbf3edd299a3de0",
+      "published_sha256": "980252f8562ab243077d0c101ae05a74f9cc6abe20e4faebdfbf3edd299a3de0"
+    },
+    "runs/trial_07/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_07/workaround/spec.json",
+      "source_sha256": "d0cc687e836eb12831547a2db151770a2eedc0ecaaeccaf8b42bc6feb6e15596",
+      "published_sha256": "d0cc687e836eb12831547a2db151770a2eedc0ecaaeccaf8b42bc6feb6e15596"
+    },
+    "runs/trial_07/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_07/workaround/status.json",
+      "source_sha256": "7f9462a07a088807a1ce64ec51c4e841a34562ef9c28df80f1204ec154e12f33",
+      "published_sha256": "7f9462a07a088807a1ce64ec51c4e841a34562ef9c28df80f1204ec154e12f33"
+    },
+    "runs/trial_07/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_07/workaround/summary.json",
+      "source_sha256": "75ad1a6488782608c5109515567df008f5a25947ea8b04e9c222938d0b469885",
+      "published_sha256": "75ad1a6488782608c5109515567df008f5a25947ea8b04e9c222938d0b469885"
+    },
+    "runs/trial_07/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_07/workaround/history.csv",
+      "source_sha256": "9740d03b3825c0e26ef366eb673382686486ab8999c88e0fb3bb7461d988aa1b",
+      "published_sha256": "9740d03b3825c0e26ef366eb673382686486ab8999c88e0fb3bb7461d988aa1b"
+    },
+    "runs/trial_07/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_07/workaround/diagnostics.csv",
+      "source_sha256": "4f702dea3058b6f72fd3e56bca4a58721b0b7fb546c70c1f077baa250212c8ac",
+      "published_sha256": "4f702dea3058b6f72fd3e56bca4a58721b0b7fb546c70c1f077baa250212c8ac"
+    },
+    "runs/trial_07/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_07/workaround/weights.csv",
+      "source_sha256": "d4b854a643805f3de95c0b7c59290ed86298f089de79b59fc65819422499b132",
+      "published_sha256": "d4b854a643805f3de95c0b7c59290ed86298f089de79b59fc65819422499b132"
+    },
+    "runs/trial_07/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_07/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_08/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_08/workaround/configuration.json",
+      "source_sha256": "6ab94dfbc3475aa62054b526afcae672770920c117b2550dcab95de9620985e5",
+      "published_sha256": "6ab94dfbc3475aa62054b526afcae672770920c117b2550dcab95de9620985e5"
+    },
+    "runs/trial_08/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_08/workaround/spec.json",
+      "source_sha256": "979d2f606cc6788aab8d9429063937011e604374394d937fd0793be7b83491db",
+      "published_sha256": "979d2f606cc6788aab8d9429063937011e604374394d937fd0793be7b83491db"
+    },
+    "runs/trial_08/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_08/workaround/status.json",
+      "source_sha256": "e1aff101e441d112856ffe7299a6551104424a7ce9a812ad322c6f90c5961495",
+      "published_sha256": "e1aff101e441d112856ffe7299a6551104424a7ce9a812ad322c6f90c5961495"
+    },
+    "runs/trial_08/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_08/workaround/summary.json",
+      "source_sha256": "3c987d57274b61a82402d0c750a5260f56358979234690bc2bce73f562848b39",
+      "published_sha256": "3c987d57274b61a82402d0c750a5260f56358979234690bc2bce73f562848b39"
+    },
+    "runs/trial_08/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_08/workaround/history.csv",
+      "source_sha256": "d3b1b9dc3c1628ad159d976c96b70a774f1d1278c978e4368feedd1908537833",
+      "published_sha256": "d3b1b9dc3c1628ad159d976c96b70a774f1d1278c978e4368feedd1908537833"
+    },
+    "runs/trial_08/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_08/workaround/diagnostics.csv",
+      "source_sha256": "2872971e12e92914ee2e739fa690acef8aa1524995dfdc29e3657b314e854926",
+      "published_sha256": "2872971e12e92914ee2e739fa690acef8aa1524995dfdc29e3657b314e854926"
+    },
+    "runs/trial_08/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_08/workaround/weights.csv",
+      "source_sha256": "2581e192966f75f403ea6959f0d40ae70dc81f61d7d89958d5511aa3ea065f05",
+      "published_sha256": "2581e192966f75f403ea6959f0d40ae70dc81f61d7d89958d5511aa3ea065f05"
+    },
+    "runs/trial_08/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_08/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_09/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_09/workaround/configuration.json",
+      "source_sha256": "8eb01cc1957b904bb73f8f06c75ccd51259dd7e85cbf6a65d72678fe56e9754c",
+      "published_sha256": "8eb01cc1957b904bb73f8f06c75ccd51259dd7e85cbf6a65d72678fe56e9754c"
+    },
+    "runs/trial_09/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_09/workaround/spec.json",
+      "source_sha256": "84b5aff7931344f77ea655032dbfa59dfa445f7d8d3d61a828025548b2979d79",
+      "published_sha256": "84b5aff7931344f77ea655032dbfa59dfa445f7d8d3d61a828025548b2979d79"
+    },
+    "runs/trial_09/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_09/workaround/status.json",
+      "source_sha256": "3f4feb35953c6f3d6769e5e5ef3e3b1bd27af77f8c59cd3f9bfda0e1676323c3",
+      "published_sha256": "3f4feb35953c6f3d6769e5e5ef3e3b1bd27af77f8c59cd3f9bfda0e1676323c3"
+    },
+    "runs/trial_09/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_09/workaround/summary.json",
+      "source_sha256": "c7805a6120b3b62655e24c8a15b84255c859da9fb6a3a6d3806a8af68aaa274f",
+      "published_sha256": "c7805a6120b3b62655e24c8a15b84255c859da9fb6a3a6d3806a8af68aaa274f"
+    },
+    "runs/trial_09/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_09/workaround/history.csv",
+      "source_sha256": "f38146a575f5e6d29c82b975da818618d82188634c5bde30a31f785dd3069ffc",
+      "published_sha256": "f38146a575f5e6d29c82b975da818618d82188634c5bde30a31f785dd3069ffc"
+    },
+    "runs/trial_09/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_09/workaround/diagnostics.csv",
+      "source_sha256": "75f5deae7788647ef16040ffbf528afff9f8b66716f5005da60a72d056b9f964",
+      "published_sha256": "75f5deae7788647ef16040ffbf528afff9f8b66716f5005da60a72d056b9f964"
+    },
+    "runs/trial_09/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_09/workaround/weights.csv",
+      "source_sha256": "dd307eece5a27f67eacf2381f0f819eb666e6146d63c14f068fd84fe9533a463",
+      "published_sha256": "dd307eece5a27f67eacf2381f0f819eb666e6146d63c14f068fd84fe9533a463"
+    },
+    "runs/trial_09/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_09/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    },
+    "runs/trial_10/workaround/configuration.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_10/workaround/configuration.json",
+      "source_sha256": "b18b87e30085815fad4b55835b87919eae14274fafce22314480a14cf320a137",
+      "published_sha256": "b18b87e30085815fad4b55835b87919eae14274fafce22314480a14cf320a137"
+    },
+    "runs/trial_10/workaround/spec.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_10/workaround/spec.json",
+      "source_sha256": "f55df4c5df2de3a6203fbb555fd32f36fc09491304148c77c25ecf00f22404f9",
+      "published_sha256": "f55df4c5df2de3a6203fbb555fd32f36fc09491304148c77c25ecf00f22404f9"
+    },
+    "runs/trial_10/workaround/status.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_10/workaround/status.json",
+      "source_sha256": "52d004523a007011886c24e44d33d9c1c9e56c675863ee787773d918b8ad3fc7",
+      "published_sha256": "52d004523a007011886c24e44d33d9c1c9e56c675863ee787773d918b8ad3fc7"
+    },
+    "runs/trial_10/workaround/summary.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_10/workaround/summary.json",
+      "source_sha256": "de46482f29c36b99b0966de3904a34449758c866261a7affc87eca6f03584b50",
+      "published_sha256": "de46482f29c36b99b0966de3904a34449758c866261a7affc87eca6f03584b50"
+    },
+    "runs/trial_10/workaround/history.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_10/workaround/history.csv",
+      "source_sha256": "238f7a7693fb2905dc1fc91ac4149a601a5a576789d7647b7b1f9d02b90a9388",
+      "published_sha256": "238f7a7693fb2905dc1fc91ac4149a601a5a576789d7647b7b1f9d02b90a9388"
+    },
+    "runs/trial_10/workaround/diagnostics.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_10/workaround/diagnostics.csv",
+      "source_sha256": "75b4d16c13a8568858e247cb5e590aade4025205e07cdb9268f00f57e6bb6b55",
+      "published_sha256": "75b4d16c13a8568858e247cb5e590aade4025205e07cdb9268f00f57e6bb6b55"
+    },
+    "runs/trial_10/workaround/weights.csv": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_10/workaround/weights.csv",
+      "source_sha256": "26a199c99e8290664a220b38a19e1e5b7d043e88cb8ba27e44978c6ca25c6939",
+      "published_sha256": "26a199c99e8290664a220b38a19e1e5b7d043e88cb8ba27e44978c6ca25c6939"
+    },
+    "runs/trial_10/workaround/data_order_sha256.json": {
+      "source": "temp/constantstep_workaround_trials10_epochs30/workaround/noise_0/seed_0/trial_10/workaround/data_order_sha256.json",
+      "source_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489",
+      "published_sha256": "685320d250f7a3d6da1e6035fa7fcebf95bad583ce82427677217d0494ebe489"
+    }
+  }
+}

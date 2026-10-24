@@ -1,0 +1,15 @@
+{
+  "fingerprint": "fe0df60bea5e31685ef377aaecf97d28b296f691c530e4c1de982e8c04c39f5e",
+  "trial_id": 10,
+  "initial_weights_sha256": "23f6b677320f6cb84a0eabd9e9b820c16ca8d5a07312b410486dfc7786237cfa",
+  "elapsed_seconds": 350.0765743549564,
+  "final_test_accuracy": 0.9828,
+  "best_test_accuracy": 0.9833,
+  "last5_mean": 0.9827199999999999,
+  "last5_range": 0.00039999999999995595,
+  "last5_sample_sd": 0.00017888543819996348,
+  "max_epoch_drop": 0.0012999999999999678,
+  "final_train_loss": 0.00043893133799235024,
+  "final_online_train_accuracy": 0.99995,
+  "final_mask_fraction": 0.08924278846153846
+}

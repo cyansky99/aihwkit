@@ -1,0 +1,22 @@
+{
+  "epochs": 30,
+  "device": "cuda",
+  "threads": 1,
+  "diagnostic_every": 250,
+  "train_limit": 0,
+  "test_limit": 0,
+  "data_dir": "/home/cyansky/aihwkit-upstream-output-mask/data/DATASET",
+  "campaign_dir": "/home/cyansky/aihwkit-upstream-output-mask/issue_experiments/output_gradient_mask/mnist/results/constantstep_seed0_trials10_epochs30",
+  "identity": {
+    "source_sha256": "116ff1e9458208d5c5e86b8570666a7d6d5bbfee7196d5d466276f83529fab82",
+    "runner_sha256": "0924337992ac3588f25d5edbd486fe984f2431f9d79a709b70351cc7b934d7b0",
+    "plotter_sha256": "f4f97b4143b862ffd7f8f786913ba8b865a114064075aa46c3c765e91ce94ba2",
+    "binding_sha256": "4f744b7b4b012110d6bb8751f409f1b417476f5cf9db580acecb7a08eb4c297a",
+    "torch": "2.9.1+cu126",
+    "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]"
+  },
+  "mode": "legacy",
+  "pulse_noise": 0.0,
+  "seed": 0,
+  "trial_id": 5
+}

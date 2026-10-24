@@ -1,0 +1,2 @@
+# Preserve measured CSV bytes so published SHA-256 values match the originals.
+*.csv -text

@@ -6,11 +6,19 @@ forward noise management and bound management. Backward settings stay fixed. Her
 The network is a dense 784–256–128–10 classifier with sigmoid hidden layers,
 using standalone ConstantStepDevice, LR 1.5 and batch 16.
 
-The default campaign runs **five separate trials per mode at nominal seed 0**:
+The default campaign runs **five separate trials per condition at nominal seed 0**:
 20 runs, each with 30 epochs of full MNIST. Repetitions share initialization and
-data order; they do not assume paired backend pulse randomness. The completed
-[one-trial pilot](sample_results/pilot_seed0/README.md) is separate from this
-campaign and is not counted toward its five trials.
+data order; backend pulse randomness is not paired.
+
+The completed [ten-trial four-condition comparison](sample_results/seed0_trials10_epochs30/README.md)
+contains 40 measured 30-epoch runs. The three managed conditions were measured
+first and workaround later. Final test accuracy (mean ± sample SD, percent):
+legacy **96.577 ± 1.372**, native **98.366 ± 0.066**, disabled **98.347 ± 0.089**,
+workaround **98.267 ± 0.094**. These repetitions share nominal seed 0.
+The earlier [one-trial pilot](sample_results/pilot_seed0/README.md) remains separate.
+Neither archive is automatically included in a new campaign.
+
+![Ten-trial four-condition comparison](sample_results/seed0_trials10_epochs30/training_comparison_noise_0_seed_0.png)
 
 ## Run
 

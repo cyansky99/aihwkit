@@ -1,0 +1,24 @@
+{
+  "epochs": 30,
+  "device": "cuda",
+  "threads": 1,
+  "diagnostic_every": 250,
+  "train_limit": 0,
+  "test_limit": 0,
+  "data_dir": "/home/cyansky/aihwkit-upstream-output-mask/data/DATASET",
+  "campaign_dir": "/home/cyansky/aihwkit-upstream-output-mask/temp/constantstep_workaround_trials10_epochs30/workaround",
+  "identity": {
+    "source_sha256": "116ff1e9458208d5c5e86b8570666a7d6d5bbfee7196d5d466276f83529fab82",
+    "runner_sha256": "59d8588e19f2b617ad833cb575b0bb01523f820f3ac83477d526367e1095ff19",
+    "plotter_sha256": "96e3890de524aa90d17d4b79ca214cf3963dac84332b69fedce4539093240ab6",
+    "binding_sha256": "4f744b7b4b012110d6bb8751f409f1b417476f5cf9db580acecb7a08eb4c297a",
+    "torch": "2.9.1+cu126",
+    "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]",
+    "adapter_sha256": "4dfd7ab6858150ba34b1c7afce1b7d7809481731342d78951774e05857c5e39e",
+    "baseline_manifest_sha256": "33e0b4d17c4d364cc3c7449fed26c8863ffce93ac4a042582cb24207dcdd35f8"
+  },
+  "mode": "workaround",
+  "pulse_noise": 0.0,
+  "seed": 0,
+  "trial_id": 2
+}

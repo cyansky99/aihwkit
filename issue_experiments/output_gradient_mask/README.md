@@ -5,13 +5,14 @@ This experimental fork is based on upstream
 The initial reproduction-only commit `dda0a9a` remains available. Later commits
 add an experimental correction and measured comparison figures. A separate
 [ConstantStep MNIST comparison](mnist/README.md) provides a five-trial runner and
-a completed one-trial pilot. Datasets and model checkpoints are not included.
+a completed ten-trial comparison of four conditions, alongside the earlier
+one-trial pilot. Datasets and model checkpoints are not included.
 
 - [Standalone existing-API reproducer](reproduce_upstream.py)
 - [Fork-specific three-mode comparison](compare_modes.py)
 - [JSON-only plotter](plot_results.py)
 - [Issue draft](ISSUE_DRAFT.md)
-- [ConstantStep MNIST trial comparison and pilot](mnist/README.md)
+- [ConstantStep MNIST comparison and measured results](mnist/README.md)
 
 | Path | What it compares | Build requirement |
 | --- | --- | --- |

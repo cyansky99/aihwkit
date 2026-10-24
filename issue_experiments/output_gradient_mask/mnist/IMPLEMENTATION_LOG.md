@@ -126,3 +126,21 @@ Scope correction: the additional condition is legacy-only with forward NM/BM NON
   `tests/test_constantstep_trials.py`: **20 passed**, CPU and actual CUDA,
   using the existing aihwkit_upstream_env. The plot test checks all six axes,
   exact limits, matching overview/detail values and absent SD outlines.
+
+
+## 2026-10-24 — completed ten-trial evidence export
+
+Published all 40 completed 30-epoch runs (first three conditions measured
+first, workaround later), without retraining or selecting trials. Copied 326
+raw CSV/JSON and executed-source artifacts byte-for-byte. Checked completion,
+run fingerprints, configuration differences, four tiles, actual mask policies,
+common simulator/binding hashes, equal programmed weights and all epoch-order
+hashes. Archived model/data-order helpers and the training loop are structurally
+identical across stages. The public plotting manifest uses relative paths and
+unchanged original specs; provenance retains the two original manifests.
+
+The private one-off adapter remains untracked; its hash and role are disclosed.
+Public code runs all four conditions directly. Published records omit datasets,
+checkpoints, binaries, interrupted runs and temporary orchestration code.
+The six-panel figure was regenerated from the copied records. Final accuracy
+means/SDs were recomputed from epoch 30, rather than best-epoch selection.
