@@ -659,9 +659,9 @@ T *ForwardBackwardPassIOManaged<T>::prepareInput(
 
 #define ARGS                                                                                       \
   T *out_values, const int out_size, const int out_inc, const MVParameter<T> &mv_pars,             \
-      const IOMetaParameter<T> &io, std::shared_ptr<RNG<T>> &rng
+      const IOMetaParameter<T> &io, std::shared_ptr<RNG<T>> &rng, bool *output_mask
 
-#define ARGS_CALL out_values, out_size, out_inc, mv_pars, io, rng
+#define ARGS_CALL out_values, out_size, out_inc, mv_pars, io, rng, output_mask
 
 template <
     typename T,
@@ -699,6 +699,11 @@ inline bool finalizeOutputImplStage5(ARGS) {
 
     value = getDiscretizedValueSR<sto_round_if>(value, res, *rng);
 
+    // Record after ADC quantization, before clipping and scale restoration.
+    // Each retry overwrites its previous mask; exact endpoints are not clipped.
+    if (output_mask) {
+      output_mask[idx] = value > bound || value < -bound;
+    }
     if (with_bm) {
       if (value > bound) {
         value = bound;
@@ -767,9 +772,9 @@ bool ForwardBackwardPassIOManaged<T>::finalizeOutput(
     const IOMetaParameter<T> &io) {
 
   if (io.out_asymmetry > (T)0.0) {
-    return finalizeOutputImplStage1<T, true>(out_values, out_size, out_inc, mv_pars, io, rng_);
+    return finalizeOutputImplStage1<T, true>(out_values, out_size, out_inc, mv_pars, io, rng_, output_mask_);
   } else {
-    return finalizeOutputImplStage1<T, false>(out_values, out_size, out_inc, mv_pars, io, rng_);
+    return finalizeOutputImplStage1<T, false>(out_values, out_size, out_inc, mv_pars, io, rng_, output_mask_);
   }
 }
 

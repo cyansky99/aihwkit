@@ -415,6 +415,13 @@ public:
   /* public interfaces for forward/backward/update. Format is
      expected in x-major order. However, the batch dimension comes
      first iif x_trans or d_trans is set to true */
+  // Experimental output-gradient mask. Existing forward ABI/behavior is unchanged.
+  virtual void forwardWithOutputMask(
+      const T *X_input, T *D_output, bool *mask, bool bias, int m_batch,
+      bool x_trans, bool d_trans, bool is_test) {
+    throw std::runtime_error("Native output mask is unsupported by this backend");
+  }
+
   void forward(
       const T *X_input,
       T *D_output,

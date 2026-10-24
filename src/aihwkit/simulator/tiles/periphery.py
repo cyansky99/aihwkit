@@ -165,9 +165,13 @@ class TileWithPeriphery(BaseTile, SimulatorTileWrapper):
             combined_weights = self._combine_weights_cuda(weight, bias)
             if apply_weight_scaling:
                 # apply_weight_scaling works on any device; re-transpose after.
-                combined_weights = self.apply_weight_scaling(
-                    combined_weights.t().contiguous(), weight_scaling_omega
-                ).t().contiguous()
+                combined_weights = (
+                    self.apply_weight_scaling(
+                        combined_weights.t().contiguous(), weight_scaling_omega
+                    )
+                    .t()
+                    .contiguous()
+                )
             self.tile.set_weights_cuda(combined_weights)
         else:
             combined_weights = self._combine_weights(weight, bias)
@@ -852,6 +856,35 @@ class TileWithPeriphery(BaseTile, SimulatorTileWrapper):
             x_input = self.apply_input_range(x_input, not is_test) / self.input_range
         return x_input
 
+    def get_output_gradient_mask_modes(self):
+        """Return requested/effective modes; handle_output_bound is the master switch."""
+        forward = getattr(self.rpu_config, "forward", None)
+        requested = getattr(forward, "output_gradient_mask_mode", "legacy")
+        if requested not in ("legacy", "native", "disabled"):
+            raise ConfigError(f"Invalid output_gradient_mask_mode: {requested!r}")
+        effective = requested if self.handle_output_bound else "disabled"
+        return requested, effective
+
+    def _prepare_output_gradient_mask(self, ctx, indexed=False):
+        requested, effective = self.get_output_gradient_mask_modes()
+        if effective == "native":
+            from aihwkit.simulator.parameters.enums import AnalogMVType
+
+            forward = self.rpu_config.forward
+            if indexed:
+                raise ConfigError("Native output mask does not support indexed convolution")
+            if not hasattr(self.tile, "forward_with_output_mask"):
+                raise ConfigError("Native output mask requires a supported rebuilt native backend")
+            if not forward.is_perfect and forward.mv_type not in (
+                AnalogMVType.ONE_PASS,
+                AnalogMVType.IDEAL,
+            ):
+                raise ConfigError("Native output mask supports ONE_PASS or perfect forward only")
+        if ctx is not None:
+            ctx.output_gradient_mask_requested = requested
+            ctx.output_gradient_mask_effective = effective
+        return effective
+
     def post_forward(
         self, x_output: Tensor, dim: int, is_test: bool = False, ctx: Any = None
     ) -> Tensor:
@@ -868,13 +901,22 @@ class TileWithPeriphery(BaseTile, SimulatorTileWrapper):
         """
         # pylint: disable=unused-argument
 
-        bound = None
-        if self.handle_output_bound:
-            bound = self.get_forward_out_bound()  # pylint: disable=assignment-from-none
-        if bound is not None and ctx is not None:
-            # pylint: disable=invalid-unary-operand-type
-            grad_zero_msk = logical_or(x_output >= bound, x_output <= -bound)
-            ctx.saved_analog_tensors.append(grad_zero_msk)
+        # Freeze each forward's policy and tensor in its autograd context.
+        # A later forward/configuration change must not alter this backward.
+        mode = getattr(ctx, "output_gradient_mask_effective", None)
+        if mode is None:
+            mode = self._prepare_output_gradient_mask(ctx)
+        if ctx is not None and mode == "native":
+            mask = getattr(ctx, "native_output_gradient_mask", None)
+            if mask is None:
+                raise ConfigError("Native output mask was not returned by this forward path")
+            ctx.saved_analog_tensors.append(mask)
+            del ctx.native_output_gradient_mask
+        elif ctx is not None and mode == "legacy":
+            bound = self.get_forward_out_bound()
+            if bound is not None:
+                grad_zero_msk = logical_or(x_output >= bound, x_output <= -bound)
+                ctx.saved_analog_tensors.append(grad_zero_msk)
 
         # Only applies to QuantizedTorchInferenceTile, as it applies the
         # scales differently than the rest of the tiles.
@@ -1054,10 +1096,18 @@ class TileWithPeriphery(BaseTile, SimulatorTileWrapper):
 
         """
         # We use no-grad as we do it explicitly in the optimizer.
+        mode = self._prepare_output_gradient_mask(ctx)
         x_input = self.pre_forward(x_input, 0 if self.in_trans else x_input.dim() - 1, is_test, ctx)
-        x_output = self.tile.forward(
-            x_input, self.analog_bias, self.in_trans, self.out_trans, is_test, self.non_blocking
-        )
+        if mode == "native":
+            x_output, mask = self.tile.forward_with_output_mask(
+                x_input, self.analog_bias, self.in_trans, self.out_trans, is_test, self.non_blocking
+            )
+            if ctx is not None:
+                ctx.native_output_gradient_mask = mask
+        else:
+            x_output = self.tile.forward(
+                x_input, self.analog_bias, self.in_trans, self.out_trans, is_test, self.non_blocking
+            )
         return self.post_forward(
             x_output, 0 if self.out_trans else x_output.dim() - 1, is_test, ctx
         )
@@ -1081,7 +1131,7 @@ class TileWithPeriphery(BaseTile, SimulatorTileWrapper):
             tensor_view = self.get_tensor_view(d_input.dim(), dim)
             d_input = d_input * self.get_mapping_scales().view(tensor_view)
 
-        if self.handle_output_bound and ctx is not None:
+        if ctx is not None:
             zero_grad_msk = (
                 None if len(ctx.saved_analog_tensors) < 2 else ctx.saved_analog_tensors[1]
             )
@@ -1312,6 +1362,7 @@ class TileWithPeriphery(BaseTile, SimulatorTileWrapper):
             TileError: if the indexed tile has not been initialized, or if
                 ``self.images_sizes`` does not have a valid dimennion.
         """
+        self._prepare_output_gradient_mask(ctx, indexed=True)
         if not self.image_sizes:
             raise TileError("self.image_sizes is not initialized. Please use set_indexed()")
 

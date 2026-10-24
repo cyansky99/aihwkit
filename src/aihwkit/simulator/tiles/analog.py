@@ -12,6 +12,8 @@ from typing import Optional, Tuple, Any
 
 from torch import Tensor
 
+from aihwkit.exceptions import ConfigError
+
 from aihwkit.simulator.tiles.rpucuda import RPUCudaSimulatorTileWrapper
 from aihwkit.simulator.tiles.module import TileModule
 from aihwkit.simulator.tiles.base import BaseTile
@@ -289,6 +291,11 @@ class AnalogTileWithoutPeriphery(TileModule, BaseTile, RPUCudaSimulatorTileWrapp
         Returns:
             torch.Tensor: ``[N, out_size]`` tensor. If ``out_trans`` is set, transposed.
         """
+        mode = getattr(self.rpu_config.forward, "output_gradient_mask_mode", "legacy")
+        if mode not in ("legacy", "native", "disabled"):
+            raise ConfigError(f"Invalid output_gradient_mask_mode: {mode!r}")
+        if mode == "native" and self.handle_output_bound:
+            raise ConfigError("Native output mask requires a tile with Python periphery")
         return self.tile.forward(
             x_input, self.analog_bias, self.in_trans, self.out_trans, is_test, self.non_blocking
         )

@@ -41,6 +41,9 @@ public:
   bool applyToOutput(
       OutputIteratorT dev_output, const bool trans = false, const bool with_out_noise = true);
 
+  // Call-scoped output mask. Null keeps the original no-recording path.
+  void setOutputMask(bool *mask) { output_mask_ = mask; }
+
   // only valid after init
   inline T *getInBuffer() const { return temp_input_applied_; };
   inline T *getOutBuffer() const { return temp_output_applied_; };
@@ -128,6 +131,7 @@ private:
   int nthreads_ = 0;
   int nblocks_batch_max_ = 0;
 
+  bool *output_mask_ = nullptr;
   const IOMetaParameter<T> *io_;
   T *temp_input_applied_ = nullptr;
   T *temp_output_applied_ = nullptr;

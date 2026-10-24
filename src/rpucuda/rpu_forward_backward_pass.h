@@ -127,6 +127,9 @@ public:
       T **weights, const T *d_input, const int d_inc, T *x_output, const int x_inc, const T alpha)
       override;
 
+  // Non-owning destination for one vector; cleared by the enclosing tile call.
+  void setOutputMask(bool *mask) { output_mask_ = mask; }
+
   void populateFBParameter(const IOMetaParameter<T> &f_io_, const IOMetaParameter<T> &b_io_);
 
   inline bool computeAnalogMV(
@@ -145,6 +148,7 @@ public:
       const bool is_test);
 
 protected:
+  bool *output_mask_ = nullptr;
   inline void applyOutputWeightNoise(
       T **weights,
       T *out_values,

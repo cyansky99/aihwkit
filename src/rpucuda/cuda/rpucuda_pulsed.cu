@@ -573,6 +573,26 @@ template <typename T> void RPUCudaPulsed<T>::applyWeightUpdate(T *dw_and_current
 /* FORWARD */
 
 template <typename T>
+void RPUCudaPulsed<T>::forwardWithOutputMask(
+    const T *X_input, T *D_output, bool *mask, bool bias, int m_batch,
+    bool x_trans, bool d_trans, bool is_test) {
+  const auto &io = getMetaPar().f_io;
+  if (!io.isPerfect() && io.mv_type != AnalogMVType::OnePass) {
+    throw std::runtime_error("Native output mask supports ONE_PASS or perfect forward only");
+  }
+  // The binding allocates a zero-filled bool tensor on the current CUDA stream.
+  // Perfect/zero-input shortcuts therefore cannot expose a stale mask.
+  f_iom_->setOutputMask(mask);
+  try {
+    this->forward(X_input, D_output, bias, m_batch, x_trans, d_trans, is_test);
+  } catch (...) {
+    f_iom_->setOutputMask(nullptr);
+    throw;
+  }
+  f_iom_->setOutputMask(nullptr);
+}
+
+template <typename T>
 void RPUCudaPulsed<T>::forwardMatrix(
     const T *X_input, T *D_output, int m_batch, bool x_trans, bool d_trans, bool is_test) {
   this->forwardMatrixIterator(X_input, D_output, m_batch, x_trans, d_trans, is_test);

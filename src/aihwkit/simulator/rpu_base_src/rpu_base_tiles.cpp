@@ -95,7 +95,7 @@ void declare_rpu_tiles(py::module &m, std::string type_name_add) {
           },
           R"pbdoc(
            Return additional state vraiables for pickling. 
- 
+
            Returns:
                state: dictionary of extra variables states
            )pbdoc")
@@ -402,6 +402,35 @@ void declare_rpu_tiles(py::module &m, std::string type_name_add) {
                num_columns: how many consecutive columns to reset (with circular warping)
                reset_prob: individual probability of reset.
            )pbdoc")
+      .def(
+          "forward_with_output_mask",
+          [](Class &self, const torch::Tensor &x_input_, bool bias = false, bool x_trans = false,
+             bool d_trans = false, bool is_test = false, bool non_blocking = false) {
+            auto x_input = x_input_.contiguous();
+            CHECK_TORCH_INPUT(x_input);
+            TORCH_CHECK(x_input.dim() >= 1, "Expected at least one input dimension");
+            int in_size = x_trans ? x_input.size(0) : x_input.size(-1);
+            TORCH_CHECK(in_size > 0 && in_size == self.getXSize() - (bias ? 1 : 0),
+                        "Invalid input size for native output mask");
+            int m_batch = x_input.numel() / in_size;
+            TORCH_CHECK(m_batch > 0, "Native output mask requires a nonempty batch");
+            std::vector<int64_t> dims(x_input.sizes().begin(), x_input.sizes().end());
+            dims.erase(x_trans ? dims.begin() : dims.end() - 1);
+            dims.insert(d_trans ? dims.begin() : dims.end(), self.getDSize());
+            auto output = torch::empty(dims, x_input.options());
+            auto mask = torch::zeros(dims, x_input.options().dtype(torch::kBool));
+
+            std::lock_guard<std::mutex> lock(self.mutex_);
+
+            self.forwardWithOutputMask(
+                reinterpret_cast<T_RPU *>(x_input.template data_ptr<T>()),
+                reinterpret_cast<T_RPU *>(output.template data_ptr<T>()),
+                mask.template data_ptr<bool>(), bias, m_batch, x_trans, d_trans, is_test);
+            return py::make_tuple(output, mask);
+          },
+          py::arg("x_input"), py::arg("bias") = false, py::arg("x_trans") = false,
+          py::arg("d_trans") = false, py::arg("is_test") = false, py::arg("non_blocking") = false,
+          "Dense forward and strict ADC clipping mask from the final bound-management attempt.")
       .def(
           "forward",
           [](Class &self, const torch::Tensor &x_input_, bool bias = false, bool x_trans = false,

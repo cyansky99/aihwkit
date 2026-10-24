@@ -24,6 +24,9 @@ namespace RPU {
 template <typename T> class RPUCudaPulsed : public RPUCudaSimple<T> {
 
 public:
+  void forwardWithOutputMask(
+      const T *X_input, T *D_output, bool *mask, bool bias, int m_batch,
+      bool x_trans, bool d_trans, bool is_test) override;
   explicit RPUCudaPulsed() {}; // dummy
   explicit RPUCudaPulsed(CudaContextPtr c, int x_size, int d_size);
   explicit RPUCudaPulsed(CudaContextPtr c, RPUPulsed<T> &o);

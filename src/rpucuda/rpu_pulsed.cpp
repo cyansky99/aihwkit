@@ -498,8 +498,34 @@ void RPUPulsed<T>::populateParameter(
 /* Vector forward/backward/update */
 
 template <typename T>
+void RPUPulsed<T>::forwardWithOutputMask(
+    const T *X_input, T *D_output, bool *mask, bool bias, int m_batch,
+    bool x_trans, bool d_trans, bool is_test) {
+  const auto &io = getMetaPar().f_io;
+  if (!io.isPerfect() && io.mv_type != AnalogMVType::OnePass) {
+    throw std::runtime_error("Native output mask supports ONE_PASS or perfect forward only");
+  }
+  std::fill(mask, mask + m_batch * this->getDSize(), false);
+  forward_output_mask_ = mask;
+  forward_output_base_ = D_output;
+  try {
+    this->forward(X_input, D_output, bias, m_batch, x_trans, d_trans, is_test);
+  } catch (...) {
+    fb_pass_->setOutputMask(nullptr);
+    forward_output_mask_ = nullptr;
+    forward_output_base_ = nullptr;
+    throw;
+  }
+  fb_pass_->setOutputMask(nullptr);
+  forward_output_mask_ = nullptr;
+  forward_output_base_ = nullptr;
+}
+
+template <typename T>
 void RPUPulsed<T>::forwardVector(
     const T *x_input, T *d_output, int x_inc, int d_inc, bool is_test) {
+  fb_pass_->setOutputMask(
+      forward_output_mask_ ? forward_output_mask_ + (d_output - forward_output_base_) : nullptr);
   fb_pass_->forwardVector(
       this->getFBWeights(is_test), x_input, x_inc, d_output, d_inc, this->getFwdAlpha(), is_test);
 };

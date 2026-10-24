@@ -28,6 +28,16 @@ class IOParameters(_PrintableMixin):
     bindings_class: ClassVar[Optional[Union[str, Type]]] = "AnalogTileInputOutputParameter"
     bindings_module: ClassVar[str] = "devices"
 
+    bindings_ignore: ClassVar[List] = ["output_gradient_mask_mode"]
+
+    output_gradient_mask_mode: str = "legacy"
+    """Forward output-gradient mask: ``legacy``, ``native`` or ``disabled``.
+
+    Experimental dense ONE_PASS support. Native records strict ADC clipping
+    before rescaling and bypasses perfect MVMs. This field has no effect on
+    backward IO parameters. Missing fields in older configurations use legacy.
+    """
+
     is_perfect: bool = False
     """Short-cut to compute a perfect forward pass.
 
@@ -265,7 +275,7 @@ class IOParametersIRDropT(IOParameters):
     computations, such as noise and non-idealities (e.g. IR-drop).
     """
 
-    bindings_ignore: ClassVar[List] = [
+    bindings_ignore: ClassVar[List] = IOParameters.bindings_ignore + [
         "ir_drop_rs",
         "ir_drop_segments",
         "ir_drop_time_step_resolution_scale",

@@ -23,6 +23,9 @@ template <typename T> struct PulsedMetaParameter;
 template <typename T> class RPUPulsed : public RPUSimple<T> {
 
 public:
+  void forwardWithOutputMask(
+      const T *X_input, T *D_output, bool *mask, bool bias, int m_batch,
+      bool x_trans, bool d_trans, bool is_test) override;
   // constructor / destructor
   RPUPulsed() {}; // for move
   RPUPulsed(int x_size, int d_size);
@@ -116,6 +119,9 @@ protected:
   std::unique_ptr<AbstractRPUDevice<T>> rpu_device_ = nullptr;
 
 private:
+  // Call-scoped, non-owning; never persisted or copied to another tile.
+  bool *forward_output_mask_ = nullptr;
+  T *forward_output_base_ = nullptr;
   // helpers
   std::unique_ptr<PulsedRPUWeightUpdater<T>> pwu_ = nullptr;
   std::unique_ptr<ForwardBackwardPassIOManaged<T>> fb_pass_ = nullptr;
