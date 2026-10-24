@@ -1,0 +1,2 @@
+# Python's CSV writer uses CRLF; normalize committed text without changing data.
+*.csv text eol=lf

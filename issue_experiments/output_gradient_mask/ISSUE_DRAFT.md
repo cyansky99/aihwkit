@@ -58,14 +58,16 @@ shows why simply removing all masking is not a general solution.
 - Conda: used; exact Conda version was not captured in the original evidence.
 - GPU used for earlier local observations: NVIDIA GeForce RTX 4080 SUPER.
 
-This commit includes the reproducer and explanation only. Raw historical records,
-candidate simulator changes and training comparisons are not included.
+The original commit `dda0a9a` contains only the reproducer and explanation.
+Later commits provide an experimental legacy/native/disabled implementation and
+small measured comparison figures. Those new samples use the experimental binary,
+including the existing-API mask-on/off samples; they are not pristine-upstream
+verification. Training comparisons are not included.
 
 The stored local weight-update error is separate from the masked input-gradient
 path; this report does not claim that every local weight update is directly
-zeroed. MNIST comparisons are additional impact experiments, not a prerequisite
-for the numerical reproduction. No completed training-impact conclusion is
-included in this draft yet.
+zeroed. Training accuracy is outside this report; no training-impact conclusion
+is included or required for this numerical reproduction.
 
 Would recording the final native clipping decision be consistent with the
 intended input-gradient semantics? I can prepare a focused PR and regression

@@ -1,0 +1,7 @@
+case,mode,status,forward_is_perfect,backward_is_perfect,bound_management,handle_output_bound,output,expected_output,dx1,dx2,fd_dx1,fd_dx2,expected_dx1,expected_dx2
+managed,legacy,observed,False,True,ITERATIVE,True,2.0,2.0,0.0,0.0,0.9999274611473083,0.9999274611473083,1.0,1.0
+managed,disabled,observed,False,True,ITERATIVE,False,2.0,2.0,1.0,1.0,0.9999274611473083,0.9999274611473083,1.0,1.0
+perfect,legacy,observed,True,True,NONE,True,2.0,2.0,0.0,0.0,0.9999274611473083,0.9999274611473083,1.0,1.0
+perfect,disabled,observed,True,True,NONE,False,2.0,2.0,1.0,1.0,0.9999274611473083,0.9999274611473083,1.0,1.0
+clipped,legacy,observed,False,True,NONE,True,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+clipped,disabled,observed,False,True,NONE,False,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0

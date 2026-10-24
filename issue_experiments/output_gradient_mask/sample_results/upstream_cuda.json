@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "experiment": "upstream_mask_toggle",
+  "modes": [
+    "legacy",
+    "disabled"
+  ],
+  "environment": {
+    "timestamp_utc": "2026-10-24T04:13:22.538265+00:00",
+    "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]",
+    "python_executable": "/home/cyansky/miniconda3/envs/aihwkit_upstream_env/bin/python",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "torch": "2.9.1+cu126",
+    "torch_cuda": "12.6",
+    "aihwkit": "1.2.0",
+    "package_path": "/home/cyansky/aihwkit-upstream-output-mask/src/aihwkit/__init__.py",
+    "binding_path": "/home/cyansky/aihwkit-upstream-output-mask/src/aihwkit/simulator/rpu_base.cpython-312-x86_64-linux-gnu.so",
+    "binding_sha256": "4f744b7b4b012110d6bb8751f409f1b417476f5cf9db580acecb7a08eb4c297a",
+    "source": {
+      "root": "/home/cyansky/aihwkit-upstream-output-mask",
+      "commit": "57af3eda978a3de78beed4c8681aef51d300dcbe",
+      "dirty": true,
+      "status": [
+        "M README.md",
+        " M issue_experiments/output_gradient_mask/ISSUE_DRAFT.md",
+        " M issue_experiments/output_gradient_mask/README.md",
+        " M issue_experiments/output_gradient_mask/reproduce_upstream.py",
+        "?? issue_experiments/README.md",
+        "?? issue_experiments/output_gradient_mask/.gitignore",
+        "?? issue_experiments/output_gradient_mask/PUBLICATION.md",
+        "?? issue_experiments/output_gradient_mask/compare_modes.py",
+        "?? issue_experiments/output_gradient_mask/evidence/",
+        "?? issue_experiments/output_gradient_mask/mnist/",
+        "?? issue_experiments/output_gradient_mask/plot_results.py",
+        "?? issue_experiments/output_gradient_mask/sample_results/",
+        "?? tests/test_mnist_mask_campaign.py",
+        "?? tests/test_output_mask_reproduction.py",
+        "?? upstream_handoff/"
+      ]
+    },
+    "device": "cuda",
+    "provenance_note": "Paths and hashes identify this run; they do not certify a pristine upstream build.",
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER"
+  },
+  "protocol": {
+    "weights": [
+      [
+        1,
+        1
+      ]
+    ],
+    "inputs": [
+      [
+        1,
+        1
+      ]
+    ],
+    "bias": false,
+    "loss": "sum(output)",
+    "inp_bound": 2,
+    "out_bound": 1,
+    "inp_res": -1,
+    "out_res": -1,
+    "noise": 0,
+    "noise_management": "NONE",
+    "backward_is_perfect": true,
+    "finite_difference_epsilon": 0.001,
+    "optimizer_steps": 0
+  },
+  "cases": [
+    {
+      "case": "managed",
+      "mode": "legacy",
+      "status": "observed",
+      "actual_weights": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "forward_is_perfect": false,
+      "backward_is_perfect": true,
+      "bound_management": "ITERATIVE",
+      "handle_output_bound": true,
+      "output": 2.0,
+      "expected_output": 2.0,
+      "input_gradient": [
+        0.0,
+        0.0
+      ],
+      "expected_input_gradient": [
+        1.0,
+        1.0
+      ],
+      "finite_difference_input_gradient": [
+        0.9999274611473083,
+        0.9999274611473083
+      ]
+    },
+    {
+      "case": "managed",
+      "mode": "disabled",
+      "status": "observed",
+      "actual_weights": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "forward_is_perfect": false,
+      "backward_is_perfect": true,
+      "bound_management": "ITERATIVE",
+      "handle_output_bound": false,
+      "output": 2.0,
+      "expected_output": 2.0,
+      "input_gradient": [
+        1.0,
+        1.0
+      ],
+      "expected_input_gradient": [
+        1.0,
+        1.0
+      ],
+      "finite_difference_input_gradient": [
+        0.9999274611473083,
+        0.9999274611473083
+      ]
+    },
+    {
+      "case": "perfect",
+      "mode": "legacy",
+      "status": "observed",
+      "actual_weights": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "forward_is_perfect": true,
+      "backward_is_perfect": true,
+      "bound_management": "NONE",
+      "handle_output_bound": true,
+      "output": 2.0,
+      "expected_output": 2.0,
+      "input_gradient": [
+        0.0,
+        0.0
+      ],
+      "expected_input_gradient": [
+        1.0,
+        1.0
+      ],
+      "finite_difference_input_gradient": [
+        0.9999274611473083,
+        0.9999274611473083
+      ]
+    },
+    {
+      "case": "perfect",
+      "mode": "disabled",
+      "status": "observed",
+      "actual_weights": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "forward_is_perfect": true,
+      "backward_is_perfect": true,
+      "bound_management": "NONE",
+      "handle_output_bound": false,
+      "output": 2.0,
+      "expected_output": 2.0,
+      "input_gradient": [
+        1.0,
+        1.0
+      ],
+      "expected_input_gradient": [
+        1.0,
+        1.0
+      ],
+      "finite_difference_input_gradient": [
+        0.9999274611473083,
+        0.9999274611473083
+      ]
+    },
+    {
+      "case": "clipped",
+      "mode": "legacy",
+      "status": "observed",
+      "actual_weights": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "forward_is_perfect": false,
+      "backward_is_perfect": true,
+      "bound_management": "NONE",
+      "handle_output_bound": true,
+      "output": 1.0,
+      "expected_output": 1.0,
+      "input_gradient": [
+        0.0,
+        0.0
+      ],
+      "expected_input_gradient": [
+        0.0,
+        0.0
+      ],
+      "finite_difference_input_gradient": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "clipped",
+      "mode": "disabled",
+      "status": "observed",
+      "actual_weights": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "forward_is_perfect": false,
+      "backward_is_perfect": true,
+      "bound_management": "NONE",
+      "handle_output_bound": false,
+      "output": 1.0,
+      "expected_output": 1.0,
+      "input_gradient": [
+        1.0,
+        1.0
+      ],
+      "expected_input_gradient": [
+        0.0,
+        0.0
+      ],
+      "finite_difference_input_gradient": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "status": "completed",
+  "tool_sha256": {
+    "/home/cyansky/aihwkit-upstream-output-mask/issue_experiments/output_gradient_mask/reproduce_upstream.py": "6eafd09d8dae42777e00df7b0bbe6a15bd7dd9ddbb85fc1ad9b2bfdb4da4bed8",
+    "/home/cyansky/aihwkit-upstream-output-mask/issue_experiments/output_gradient_mask/plot_results.py": "721f04ef15ff130ca77cf773ee98fb2a0bd99710da4a99db358a8aae334dea3b"
+  }
+}

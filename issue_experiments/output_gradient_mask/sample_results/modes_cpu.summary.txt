@@ -1,0 +1,16 @@
+three_modes | cpu | completed
+aihwkit=1.2.0 torch=2.9.1+cu126
+Python package: /home/cyansky/aihwkit-upstream-output-mask/src/aihwkit/__init__.py
+Native binding: /home/cyansky/aihwkit-upstream-output-mask/src/aihwkit/simulator/rpu_base.cpython-312-x86_64-linux-gnu.so
+W=[1,1], x=[1,1], loss=sum(y), out_bound=1; noise/quantization off
+
+Case      Mode     F.perf B.perf BM         Y/expected   dX               FD dX            Expected dX
+managed   legacy   False  True   ITERATIVE  2/2          [0,0]            [0.99993,0.99993] [1,1]
+managed   native   False  True   ITERATIVE  2/2          [1,1]            [0.99993,0.99993] [1,1]
+managed   disabled False  True   ITERATIVE  2/2          [1,1]            [0.99993,0.99993] [1,1]
+perfect   legacy   True   True   NONE       2/2          [0,0]            [0.99993,0.99993] [1,1]
+perfect   native   True   True   NONE       2/2          [1,1]            [0.99993,0.99993] [1,1]
+perfect   disabled True   True   NONE       2/2          [1,1]            [0.99993,0.99993] [1,1]
+clipped   legacy   False  True   NONE       1/1          [0,0]            [0,0]            [0,0]
+clipped   native   False  True   NONE       1/1          [0,0]            [0,0]            [0,0]
+clipped   disabled False  True   NONE       1/1          [1,1]            [0,0]            [0,0]
