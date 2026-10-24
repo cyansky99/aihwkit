@@ -81,14 +81,17 @@ restoration, and should not suppress gradients for perfect forward.
 * Conda version (or N/A): 24.11.3
 * GPU: NVIDIA GeForce RTX 4080 SUPER
 
-The reproduction above uses existing AIHWKit APIs and requires no rebuild.
-The three-mode comparison below requires building this fork, since `native`
-uses a new C++/CUDA binding.
+I added an experimental fix and comparison tools to
+[my fork](https://github.com/cyansky99/aihwkit/tree/fix/output-bound-gradient-mask).
 
-The fork includes an experimental comparison between `legacy` (original
-masking), `native` (actual final ADC clipping mask), and `disabled` (no mask).
-All three produce the same forward outputs in these examples; `native` gives
-the expected input gradients in all three cases.
+The standalone reproduction above works with an existing AIHWKit installation
+and requires no rebuild. To compare `legacy` (original masking), `native`
+(actual final ADC clipping mask), and `disabled` (no mask), build this fork using
+the [build and comparison instructions](https://github.com/cyansky99/aihwkit/blob/a0ae95a/issue_experiments/output_gradient_mask/README.md).
+The `native` mode requires the new C++/CUDA binding included in this fork.
+
+All three modes produce the same forward outputs in these examples.
+The `native` mode gives the expected input gradients in all three cases.
 
 ![CPU comparison of outputs, autograd gradients, and finite differences](https://raw.githubusercontent.com/cyansky99/aihwkit/a0ae95a/issue_experiments/output_gradient_mask/sample_results/modes_cpu.png)
 
