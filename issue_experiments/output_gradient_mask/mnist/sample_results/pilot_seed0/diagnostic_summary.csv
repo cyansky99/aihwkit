@@ -1,0 +1,4 @@
+mode,final_head_mask_percent,head_error_norm_ratio,final_head_weight_boundary_percent,actual_clip_percent,legacy_false_positive_percent
+legacy,70.1171875,0.27019611905136204,4.531250149011612,,
+native,0.0,1.0,4.609375074505806,0.0,56.21093828231096
+disabled,0.0,1.0,3.515625,,

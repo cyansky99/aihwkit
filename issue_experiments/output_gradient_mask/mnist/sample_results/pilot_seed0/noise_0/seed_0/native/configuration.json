@@ -1,0 +1,217 @@
+{
+  "spec": {
+    "epochs": 20,
+    "device": "cuda",
+    "threads": 1,
+    "diagnostic_every": 250,
+    "train_limit": 0,
+    "test_limit": 0,
+    "data_dir": "/home/cyansky/aihwkit-upstream-output-mask/data/DATASET",
+    "campaign_dir": "/home/cyansky/aihwkit-upstream-output-mask/issue_experiments/output_gradient_mask/mnist/results/constantstep_noise_seed0",
+    "identity": {
+      "source_sha256": "116ff1e9458208d5c5e86b8570666a7d6d5bbfee7196d5d466276f83529fab82",
+      "runner_sha256": "95f160d3a8634068f20c8fc0e5a4204033c3cf051278e4bd62d826bab2bcdad7",
+      "binding_sha256": "4f744b7b4b012110d6bb8751f409f1b417476f5cf9db580acecb7a08eb4c297a",
+      "torch": "2.9.1+cu126",
+      "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]"
+    },
+    "mode": "native",
+    "pulse_noise": 0.0,
+    "seed": 0
+  },
+  "rpu_config": {
+    "tile_class": "aihwkit.simulator.tiles.analog.AnalogTile",
+    "runtime": {
+      "data_type": "FLOAT",
+      "on_the_fly_bindings": false,
+      "offload_input": false,
+      "offload_gradient": false
+    },
+    "pre_post": {
+      "input_range": {
+        "enable": false,
+        "learn_input_range": true,
+        "init_value": 3.0,
+        "init_from_data": 100,
+        "init_std_alpha": 3.0,
+        "decay": 0.001,
+        "input_min_percentage": 0.95,
+        "manage_output_clipping": false,
+        "output_min_percentage": 0.95,
+        "gradient_scale": 1.0,
+        "gradient_relative": true,
+        "calibration_info": null
+      }
+    },
+    "tile_array_class": "aihwkit.simulator.tiles.array.TileModuleArray",
+    "mapping": {
+      "digital_bias": true,
+      "weight_scaling_omega": 0,
+      "weight_scaling_columnwise": false,
+      "weight_scaling_lr_compensation": false,
+      "learn_out_scaling": false,
+      "out_scaling_columnwise": false,
+      "max_input_size": 512,
+      "max_output_size": 512
+    },
+    "forward": {
+      "output_gradient_mask_mode": "native",
+      "is_perfect": false,
+      "mv_type": "ONE_PASS",
+      "inp_bound": 1,
+      "inp_noise": 0.0,
+      "inp_res": 0.0002442598925256473,
+      "inp_sto_round": false,
+      "inp_asymmetry": 0.0,
+      "out_bound": 12,
+      "out_noise": 0,
+      "out_noise_std": 0.0,
+      "out_res": 0.0002442598925256473,
+      "out_sto_round": false,
+      "out_scale": 1.0,
+      "out_asymmetry": 0.0,
+      "bound_management": "ITERATIVE",
+      "noise_management": "ABS_MAX",
+      "w_noise": 0.0,
+      "w_noise_type": "NONE",
+      "ir_drop": 0.0,
+      "ir_drop_g_ratio": 571428.5714285714,
+      "out_nonlinearity": 0.0,
+      "out_nonlinearity_std": 0.0,
+      "slope_calibration": 0.0,
+      "v_offset_std": 0.0,
+      "v_offset_w_min": -1.0,
+      "r_series": 0.0,
+      "w_read_asymmetry_dtod": 0.0,
+      "max_bm_factor": 1000,
+      "max_bm_res": 0.25,
+      "bm_test_negative_bound": true,
+      "nm_thres": 0.0
+    },
+    "backward": {
+      "output_gradient_mask_mode": "legacy",
+      "is_perfect": false,
+      "mv_type": "ONE_PASS",
+      "inp_bound": 1,
+      "inp_noise": 0.0,
+      "inp_res": 0.0002442598925256473,
+      "inp_sto_round": false,
+      "inp_asymmetry": 0.0,
+      "out_bound": 12,
+      "out_noise": 0,
+      "out_noise_std": 0.0,
+      "out_res": 0.0002442598925256473,
+      "out_sto_round": false,
+      "out_scale": 1.0,
+      "out_asymmetry": 0.0,
+      "bound_management": "ITERATIVE",
+      "noise_management": "ABS_MAX",
+      "w_noise": 0.0,
+      "w_noise_type": "NONE",
+      "ir_drop": 0.0,
+      "ir_drop_g_ratio": 571428.5714285714,
+      "out_nonlinearity": 0.0,
+      "out_nonlinearity_std": 0.0,
+      "slope_calibration": 0.0,
+      "v_offset_std": 0.0,
+      "v_offset_w_min": -1.0,
+      "r_series": 0.0,
+      "w_read_asymmetry_dtod": 0.0,
+      "max_bm_factor": 1000,
+      "max_bm_res": 0.25,
+      "bm_test_negative_bound": true,
+      "nm_thres": 0.0
+    },
+    "update": {
+      "desired_bl": 31,
+      "fixed_bl": true,
+      "pulse_type": "STOCHASTIC_COMPRESSED",
+      "res": 0,
+      "x_res_implicit": 0,
+      "d_res_implicit": 0,
+      "d_sparsity": false,
+      "sto_round": false,
+      "update_bl_management": true,
+      "update_management": true,
+      "um_grad_scale": 1.0
+    },
+    "device": {
+      "construction_seed": 1,
+      "corrupt_devices_prob": 0.0,
+      "corrupt_devices_range": 0.1,
+      "diffusion": 0.0,
+      "diffusion_dtod": 0.0,
+      "drift": {
+        "nu": 0.0,
+        "t_0": 1.0,
+        "reset_tol": 1e-07,
+        "nu_dtod": 0.0,
+        "nu_std": 0.0,
+        "wg_ratio": 1.0,
+        "g_offset": 0.0,
+        "w_offset": 0.0,
+        "nu_k": 0.0,
+        "log_g0": 0.0,
+        "w_noise_std": 0.0
+      },
+      "dw_min": 0.002,
+      "dw_min_dtod": 0,
+      "dw_min_dtod_log_normal": false,
+      "dw_min_std": 0.0,
+      "enforce_consistency": true,
+      "lifetime": 0.0,
+      "lifetime_dtod": 0.0,
+      "perfect_bias": false,
+      "reset": 0.0,
+      "reset_dtod": 0.0,
+      "reset_std": 0,
+      "up_down": 0,
+      "up_down_dtod": 0,
+      "w_max": 2,
+      "w_max_dtod": 0,
+      "w_min": -2,
+      "w_min_dtod": 0,
+      "count_pulses": false
+    }
+  },
+  "tile_shapes": [
+    [
+      256,
+      392
+    ],
+    [
+      256,
+      392
+    ],
+    [
+      128,
+      256
+    ],
+    [
+      10,
+      128
+    ]
+  ],
+  "effective_modes": [
+    [
+      "native",
+      "native"
+    ],
+    [
+      "native",
+      "native"
+    ],
+    [
+      "native",
+      "native"
+    ],
+    [
+      "native",
+      "native"
+    ]
+  ],
+  "initial_weights_sha256": "23f6b677320f6cb84a0eabd9e9b820c16ca8d5a07312b410486dfc7786237cfa",
+  "seed_scope": "Matched initialization, epoch permutations and construction seed; backend pulse RNG not guaranteed paired",
+  "data_transform": "uint8 / 255, equivalent to ToTensor for MNIST; no normalization/augmentation",
+  "backward_bound_note": "Bound management is a forward operation; backward retains backend behavior"
+}

@@ -1,0 +1,86 @@
+{
+  "jobs": [
+    {
+      "path": "noise_0/seed_0/legacy",
+      "spec": {
+        "epochs": 20,
+        "device": "cuda",
+        "threads": 1,
+        "diagnostic_every": 250,
+        "train_limit": 0,
+        "test_limit": 0,
+        "data_dir": "/home/cyansky/aihwkit-upstream-output-mask/data/DATASET",
+        "campaign_dir": "/home/cyansky/aihwkit-upstream-output-mask/issue_experiments/output_gradient_mask/mnist/results/constantstep_noise_seed0",
+        "identity": {
+          "source_sha256": "116ff1e9458208d5c5e86b8570666a7d6d5bbfee7196d5d466276f83529fab82",
+          "runner_sha256": "95f160d3a8634068f20c8fc0e5a4204033c3cf051278e4bd62d826bab2bcdad7",
+          "binding_sha256": "4f744b7b4b012110d6bb8751f409f1b417476f5cf9db580acecb7a08eb4c297a",
+          "torch": "2.9.1+cu126",
+          "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]"
+        },
+        "mode": "legacy",
+        "pulse_noise": 0.0,
+        "seed": 0
+      }
+    },
+    {
+      "path": "noise_0/seed_0/native",
+      "spec": {
+        "epochs": 20,
+        "device": "cuda",
+        "threads": 1,
+        "diagnostic_every": 250,
+        "train_limit": 0,
+        "test_limit": 0,
+        "data_dir": "/home/cyansky/aihwkit-upstream-output-mask/data/DATASET",
+        "campaign_dir": "/home/cyansky/aihwkit-upstream-output-mask/issue_experiments/output_gradient_mask/mnist/results/constantstep_noise_seed0",
+        "identity": {
+          "source_sha256": "116ff1e9458208d5c5e86b8570666a7d6d5bbfee7196d5d466276f83529fab82",
+          "runner_sha256": "95f160d3a8634068f20c8fc0e5a4204033c3cf051278e4bd62d826bab2bcdad7",
+          "binding_sha256": "4f744b7b4b012110d6bb8751f409f1b417476f5cf9db580acecb7a08eb4c297a",
+          "torch": "2.9.1+cu126",
+          "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]"
+        },
+        "mode": "native",
+        "pulse_noise": 0.0,
+        "seed": 0
+      }
+    },
+    {
+      "path": "noise_0/seed_0/disabled",
+      "spec": {
+        "epochs": 20,
+        "device": "cuda",
+        "threads": 1,
+        "diagnostic_every": 250,
+        "train_limit": 0,
+        "test_limit": 0,
+        "data_dir": "/home/cyansky/aihwkit-upstream-output-mask/data/DATASET",
+        "campaign_dir": "/home/cyansky/aihwkit-upstream-output-mask/issue_experiments/output_gradient_mask/mnist/results/constantstep_noise_seed0",
+        "identity": {
+          "source_sha256": "116ff1e9458208d5c5e86b8570666a7d6d5bbfee7196d5d466276f83529fab82",
+          "runner_sha256": "95f160d3a8634068f20c8fc0e5a4204033c3cf051278e4bd62d826bab2bcdad7",
+          "binding_sha256": "4f744b7b4b012110d6bb8751f409f1b417476f5cf9db580acecb7a08eb4c297a",
+          "torch": "2.9.1+cu126",
+          "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]"
+        },
+        "mode": "disabled",
+        "pulse_noise": 0.0,
+        "seed": 0
+      }
+    }
+  ],
+  "environment": {
+    "commit": "f63f47554c48ed2e0bccf7213ee176eaffd79889",
+    "working_tree": "?? issue_experiments/README.md\n?? issue_experiments/output_gradient_mask/PUBLICATION.md\n?? issue_experiments/output_gradient_mask/evidence/\n?? issue_experiments/output_gradient_mask/mnist/\n?? tests/test_constantstep_mask_training.py\n?? tests/test_mnist_mask_campaign.py\n?? upstream_handoff/.gitignore\n?? upstream_handoff/IMPLEMENTATION_LOG.md\n?? upstream_handoff/ISSUE_DRAFT.md\n?? upstream_handoff/README.md\n?? upstream_handoff/UPSTREAM_CPU_AFTER_FIX.json\n?? upstream_handoff/UPSTREAM_CPU_AFTER_FIX.summary.txt\n?? upstream_handoff/UPSTREAM_CPU_BEFORE_FIX.json\n?? upstream_handoff/UPSTREAM_CUDA_AFTER_FIX.json\n?? upstream_handoff/UPSTREAM_CUDA_AFTER_FIX.summary.txt\n?? upstream_handoff/UPSTREAM_CUDA_BEFORE_FIX.json\n?? upstream_handoff/UPSTREAM_CUDA_BEFORE_FIX.summary.txt\n?? upstream_handoff/WORKFLOW.md\n?? upstream_handoff/check_programming_variability.py\n?? upstream_handoff/native_mask_rng_check.cpp\n?? upstream_handoff/run_native_mask_rng_check.py\n?? upstream_handoff/validation/\n",
+    "source_sha256": "116ff1e9458208d5c5e86b8570666a7d6d5bbfee7196d5d466276f83529fab82",
+    "runner_sha256": "95f160d3a8634068f20c8fc0e5a4204033c3cf051278e4bd62d826bab2bcdad7",
+    "binding_sha256": "4f744b7b4b012110d6bb8751f409f1b417476f5cf9db580acecb7a08eb4c297a",
+    "python": "3.12.12 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 20:16:04) [GCC 11.2.0]",
+    "torch": "2.9.1+cu126",
+    "aihwkit": "1.2.0",
+    "python_path": "/home/cyansky/aihwkit-upstream-output-mask/src/aihwkit/__init__.py",
+    "binding_path": "/home/cyansky/aihwkit-upstream-output-mask/src/aihwkit/simulator/rpu_base.cpython-312-x86_64-linux-gnu.so",
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER"
+  }
+}

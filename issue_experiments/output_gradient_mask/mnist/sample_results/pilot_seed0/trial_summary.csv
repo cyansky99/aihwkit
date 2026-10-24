@@ -1,0 +1,4 @@
+pulse_noise,seed,mode,completed_trials,planned_trials,final_test_accuracy_mean,final_test_accuracy_sample_sd
+0.0,0,legacy,1,1,0.9753,
+0.0,0,native,1,1,0.9827,
+0.0,0,disabled,1,1,0.9821,
