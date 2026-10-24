@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ConstantStep MNIST: historical low-noise settings, three output-mask modes.
+"""ConstantStep MNIST: historical low-noise settings, four comparison conditions.
 
 The name 'native' refers only to this fork's experimental output mask.
 No simulator source changes or extra diagnostic forward passes are required.
@@ -23,7 +23,16 @@ import time
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "src"))
-MODES = ("legacy", "native", "disabled")
+# CLI condition names. Workaround is not a fourth simulator mask policy.
+MODES = ("legacy", "native", "disabled", "workaround")
+
+
+def mask_mode_for_condition(condition):
+    if condition not in MODES:
+        raise ValueError(f"Unknown comparison condition: {condition}")
+    return "legacy" if condition == "workaround" else condition
+
+
 if __package__:
     from . import plot_training_comparison as plots
 else:
@@ -92,7 +101,13 @@ def make_config(mode, pulse_noise, seed):
         io.inp_bound, io.out_bound, io.out_noise = 1, 12, 0
         io.noise_management = NoiseManagementType.ABS_MAX
         io.bound_management = BoundManagementType.ITERATIVE
-    cfg.forward.output_gradient_mask_mode = mode
+    cfg.forward.output_gradient_mask_mode = mask_mode_for_condition(mode)
+    if mode == "workaround":
+        # Existing-API workaround: keep legacy clipping mask, remove only the
+        # forward management factors that were restored before that mask.
+        # Backward noise management, ADC bounds and pulse generation stay fixed.
+        cfg.forward.noise_management = NoiseManagementType.NONE
+        cfg.forward.bound_management = BoundManagementType.NONE
     cfg.mapping.digital_bias = True
     cfg.mapping.max_input_size = cfg.mapping.max_output_size = 512
     cfg.mapping.weight_scaling_omega = 0
@@ -151,7 +166,7 @@ class Diagnostics:
     In non-native modes actual ADC clipping is unknown, not assumed to be zero.
     Per-context metadata also keeps successive forward calls independent.
     """
-    def __init__(self, model, trial_id=1):
+    def __init__(self, model, trial_id=1, condition=None):
         self.active = False
         self.epoch = self.batch = 0
         self.rows = []
@@ -170,7 +185,8 @@ class Diagnostics:
                     count = x_output.numel()
                     mode = _tile.get_output_gradient_mask_modes()[1]
                     row = dict(trial_id=trial_id, epoch=self.epoch, batch=self.batch, tile=_index,
-                               layer=(0, 0, 1, 2)[_index], mode=mode, elements=count,
+                               layer=(0, 0, 1, 2)[_index], mode=condition or mode,
+                               mask_mode=mode, elements=count,
                                masked=int(mask.sum()) if mask is not None else 0,
                                mask_fraction=float(mask.float().mean()) if mask is not None else 0.,
                                legacy_threshold_fraction=float(legacy.float().mean()),
@@ -329,7 +345,8 @@ def run_worker(spec_path):
                         raise RuntimeError("Programmed initial weights differ between matched trials")
         torch.save(initial, output / "initial_weights.pt")
         write_json(output / "configuration.json", dict(
-            spec=spec, rpu_config=encode(cfg), tile_shapes=shapes,
+            spec=spec, condition=spec["mode"], mask_mode=cfg.forward.output_gradient_mask_mode,
+            rpu_config=encode(cfg), tile_shapes=shapes,
             effective_modes=[t.get_output_gradient_mask_modes() for t in model.analog_tiles()],
             initial_weights_sha256=initial_hash,
             seed_scope="Matched initialization, epoch permutations and construction seed; backend pulse RNG not guaranteed paired",
@@ -348,7 +365,7 @@ def run_worker(spec_path):
         (x, y), (tx, ty) = arrays
         optimizer = AnalogSGD(model.parameters(), lr=1.5)
         optimizer.regroup_param_groups(model)
-        diag = Diagnostics(model, spec["trial_id"])
+        diag = Diagnostics(model, spec["trial_id"], condition=spec["mode"])
         history, weights, orders = [], [], []
         started = time.monotonic()
         for epoch in range(1, spec["epochs"] + 1):
@@ -417,11 +434,12 @@ def run_worker(spec_path):
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--modes", nargs="+", choices=MODES, default=list(MODES))
+    parser.add_argument("--modes", nargs="+", choices=MODES, default=list(MODES),
+                        help="Comparison conditions; workaround uses legacy masking with forward NM/BM off")
     parser.add_argument("--seeds", nargs="+", type=int, default=[0])
     parser.add_argument("--trials", type=int, default=5, help="Separate runs per mode at each nominal seed (default: 5)")
     parser.add_argument("--pulse-noise", nargs="+", type=float, default=[0.])
-    parser.add_argument("--epochs", type=int, default=20)
+    parser.add_argument("--epochs", type=int, default=30)
     parser.add_argument("--device", choices=("cpu", "cuda"), default="cuda")
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument("--diagnostic-every", type=int, default=250)

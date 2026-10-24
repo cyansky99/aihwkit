@@ -16,6 +16,13 @@ def test_configuration_changes_only_selected_factors():
     assert reference["mapping"]["max_input_size"] == 512
     for mode in MODES:
         cfg = encode(make_config(mode, .02, 0))
+        if mode == "workaround":
+            assert cfg["forward"]["noise_management"] == "NONE"
+            assert cfg["forward"]["bound_management"] == "NONE"
+            assert cfg["backward"] == reference["backward"]
+            assert cfg["forward"]["output_gradient_mask_mode"] == "legacy"
+            cfg["forward"]["noise_management"] = reference["forward"]["noise_management"]
+            cfg["forward"]["bound_management"] = reference["forward"]["bound_management"]
         cfg["forward"]["output_gradient_mask_mode"] = "legacy"
         cfg["device"]["dw_min_std"] = 0.
         assert cfg == reference
@@ -60,7 +67,7 @@ def test_diagnostics_do_not_change_forward_gradient_or_update(mode, device):
         for layer, (w, b) in zip((model[0], model[2], model[4]), initial):
             layer.set_weights(w, b)
         model.zero_grad()
-        diag = Diagnostics(model) if observe else None
+        diag = Diagnostics(model, condition=mode) if observe else None
         if diag:
             diag.active = True
             diag.epoch = diag.batch = 1
@@ -81,6 +88,8 @@ def test_diagnostics_do_not_change_forward_gradient_or_update(mode, device):
                          for l in (model[0], model[2], model[4])]))
         if diag:
             assert len(diag.rows) == 4
+            assert {r["mode"] for r in diag.rows} == {mode}
+            assert {r["mask_mode"] for r in diag.rows} == {"legacy" if mode == "workaround" else mode}
             if mode == "native":
                 assert any(r["legacy_false_positive_fraction"] > 0 for r in diag.rows)
             if mode == "disabled":

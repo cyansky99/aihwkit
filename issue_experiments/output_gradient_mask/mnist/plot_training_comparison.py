@@ -18,8 +18,8 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.ticker import MaxNLocator
 
-MODES = ("legacy", "native", "disabled")
-COLORS = {"legacy": "#dc8b27", "native": "#287bb5", "disabled": "#369552"}
+MODES = ("legacy", "native", "disabled", "workaround")
+COLORS = {"legacy": "#dc8b27", "native": "#287bb5", "disabled": "#369552", "workaround": "#9456b3"}
 METRICS = ("test_accuracy", "train_loss", "train_accuracy", "mask_fraction")
 LABELS = ("Test accuracy (%)", "Online training cross-entropy",
           "Online training accuracy (%)", "Applied mask (%) · sampled elements")
@@ -120,8 +120,19 @@ def make_figure(jobs, noise, seed):
         raise ValueError("No trials for requested noise/seed")
     with plt.rc_context({"font.family": "DejaVu Sans", "font.size": 11,
                          "axes.spines.top": False, "axes.spines.right": False}):
-        fig, axes = plt.subplots(2, 2, figsize=(13, 10), sharex=True)
-        fig.subplots_adjust(left=.08, right=.975, bottom=.15, top=.77, wspace=.25, hspace=.28)
+        # Independent x axes keep the detail windows from cropping the overview.
+        fig, axes = plt.subplots(2, 3, figsize=(18, 10),
+                                 gridspec_kw={"width_ratios": [1.15, .85, 1.15]})
+        panels = (
+            (axes[0, 0], "test_accuracy", 100, LABELS[0], None),
+            (axes[0, 1], "test_accuracy", 100, LABELS[0], (97.8, 98.6)),
+            (axes[0, 2], "train_loss", 1, LABELS[1], None),
+            (axes[1, 0], "train_accuracy", 100, LABELS[2], None),
+            (axes[1, 1], "train_accuracy", 100, LABELS[2], (99.75, 100.02)),
+            (axes[1, 2], "mask_fraction", 100, LABELS[3], None),
+        )
+        fig.subplots_adjust(left=.065, right=.98, bottom=.17, top=.77,
+                            wspace=.34, hspace=.30)
         fig.text(.08, .957, "ConstantStep MNIST: output-gradient mask comparison", fontsize=18, weight="bold")
         done = sum(j["complete"] for j in selected)
         fig.text(.08, .92, f"Pulse noise {noise:g}  ·  nominal seed {seed}  ·  LR 1.5  ·  batch 16"
@@ -134,7 +145,7 @@ def make_figure(jobs, noise, seed):
             n = sum(j["complete"] for j in trials)
             color = COLORS[mode]
             handles.append(Line2D([], [], color=color, lw=2.5, label=f"{mode} · n={n}/{len(trials)}"))
-            for ax, key, scale in zip(axes.flat, METRICS, (100, 1, 100, 100)):
+            for ax, key, scale, _, _ in panels:
                 for trial in trials:
                     h = trial["rows"]
                     if h:
@@ -148,9 +159,10 @@ def make_figure(jobs, noise, seed):
                             marker="o" if len(epochs) == 1 else None, markersize=4)
                 if sd is not None:
                     ax.fill_between(epochs, [(m - s) * scale for m, s in zip(mean, sd)],
-                                    [(m + s) * scale for m, s in zip(mean, sd)], color=color, alpha=.16)
+                                    [(m + s) * scale for m, s in zip(mean, sd)], color=color, alpha=.16,
+                                    edgecolor="none", linewidth=0)
         fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(.07, .895),
-                   frameon=False, ncol=3, fontsize=11)
+                   frameon=False, ncol=min(4, len(handles)), fontsize=11)
         partial = [f"{j['spec']['mode']} trial {j['trial_id']}: {len(j['rows'])}/{j['spec']['epochs']} epochs"
                    f" ({j['state']})" for j in selected if not j["complete"] and j["rows"]]
         progress = "All runs complete" if done == len(selected) else (
@@ -158,16 +170,25 @@ def make_figure(jobs, noise, seed):
             if partial else "Waiting for the first saved epoch")
         fig.text(.08, .815, progress, fontsize=10, color="#4C5663")
         target = max(j["spec"]["epochs"] for j in selected)
-        for ax, label in zip(axes.flat, LABELS):
-            ax.set(xlabel="Epoch", ylabel=label, xlim=(.5, target + .5))
+        for ax, key, _, label, zoom in panels:
+            ax.set(xlabel="Epoch", ylabel=label,
+                   xlim=(20, 30) if zoom else (.5, target + .5))
+            if zoom:
+                ax.set_ylim(*zoom)
+                ax.set_title("Detail · epochs 20–30", fontsize=11)
+                ax.ticklabel_format(axis="y", style="plain", useOffset=False)
+                if not any(20 <= r["epoch"] <= 30 for j in selected for r in j["rows"]):
+                    ax.text(.5, .5, "No saved epochs 20–30 yet", ha="center",
+                            fontsize=9, transform=ax.transAxes)
             ax.tick_params(labelbottom=True)
             ax.xaxis.set_major_locator(MaxNLocator(integer=True, nbins=6))
             ax.grid(alpha=.18)
-            if not ax.lines:
+            if not ax.lines and not zoom:
                 ax.text(.5, .5, "No saved epochs yet", ha="center", transform=ax.transAxes)
+        fig.text(.08, .105, "Center panels magnify fixed accuracy ranges at epochs 20–30; values outside these windows are not shown there.", fontsize=9.5, color="#4C5663")
         fig.text(.08, .08, "Thick lines: completed-trial mean. Shading: ±1 sample SD (n ≥ 2), not a confidence interval.", fontsize=10)
         fig.text(.08, .052, "Thin lines: individual trials. Dashed: partial runs, excluded from mean/SD. Same seed does not pair backend RNG.", fontsize=9.5)
-        fig.text(.08, .024, "native = this fork's experimental mask. Training metrics are collected during updates; mask rates are sampled.", fontsize=9.5, color="#4C5663")
+        fig.text(.08, .024, "native: experimental mask. workaround: legacy mask, forward NM/BM off. Training metrics online; mask rates sampled.", fontsize=9.5, color="#4C5663")
     return fig
 
 

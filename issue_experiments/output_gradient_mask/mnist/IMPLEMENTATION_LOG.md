@@ -65,3 +65,64 @@ pilot forms a separate commit on the same branch. Models, datasets, native
 binaries, earlier incomplete campaigns and unrelated local handoff files are
 excluded. Publishing this material does not run the five-trial campaign or edit
 the GitHub issue.
+
+## Default duration update
+
+Changed the new campaign default from 20 to 30 epochs per trial at user request
+(15 runs, 450 epochs total). Updated example commands and default-value tests.
+The existing 20-epoch pilot and its recorded execution source remain unchanged.
+The explicit --epochs override remains available. No training was launched.
+
+## Forward-only management control
+
+Added separate `run_forward_management.py` and `plot_forward_management.py`
+entrypoints while the 10-trial baseline campaign was running. Neither baseline
+Python file nor its compiled backend was modified. The new condition disables
+forward NM and BM only; backward NM remains ABS_MAX and the backend's unsupported
+backward BM behavior is unchanged. Other configuration fields are identical.
+The default new condition is `none`; `managed none` selects the six combinations
+with the three mask policies. Grouped plots and final-accuracy statistics do not
+pool the two forward conditions. The default is five trials, 30 epochs per run.
+
+Validation: `tests/test_forward_management.py`: 8 passed, no MNIST training or
+GPU allocation. Tests verify the exact two-field configuration difference for
+all modes, worker configuration selection before model/data creation, job counts,
+separate statistics/figures, identity checks, four archived source files and a
+dry-run without modifying the baseline files. Baseline source hashes were
+checked before and after this addition. New training, commit and push were not
+performed for this step.
+
+Scope correction: the additional condition is legacy-only with forward NM/BM NONE. The existing three managed mask conditions remain unchanged. The separate runner now rejects native/disabled and managed, defaults to five legacy trials, and schedules ten runs for --trials 10. README and tests were corrected. No new training, commit or push.
+
+## 2026-10-24 — fourth comparison condition and borderless bands
+
+- Added `workaround` to the common runner/plotter. It uses legacy masking and
+  disables only forward NM/BM; backward NM remains ABS_MAX.
+- Default selection is four conditions × five trials × 30 epochs. Configuration
+  and diagnostic records distinguish condition labels from actual mask policies.
+- Removed the sample-SD band's edge stroke; retained individual-trial curves.
+- Replaced documentation for the earlier separate forward-management entrypoint
+  with unified four-condition commands. The superseded local prototype is archived
+  privately. Historical measurement files and archived runners remain unchanged.
+- A private one-off adapter under ignored `temp/` combines the completed
+  10-trial/30-epoch baseline with ten new workaround trials. It validates matching
+  simulator/binding, configuration, initialization and data order. It is not a
+  general relaxation of campaign resume checks and is not published.
+- Validation and launch details are recorded in the private comparison README.
+
+
+## 2026-10-24 — accuracy detail panels and publication checks
+
+- Changed the shared plotter from 2×2 to two rows × three columns, retaining
+  the original four views and inserting narrower test/train accuracy detail
+  panels for epochs 20–30. Test limits: 97.8–98.6%; train: 99.75–100.02%.
+- Detail views share the exact trial data and completed-trial statistics with
+  the overview; axes are independent. SD bands remain borderless. Before
+  epoch 20, a label explains the empty detail windows.
+- The campaign's existing per-epoch aggregate call uses this plotter directly.
+  No watcher, new training, dataset download or backend rebuild was used.
+- Existing completed evidence was redrawn and the generated PNG inspected.
+- `tests/test_constantstep_mask_training.py` and
+  `tests/test_constantstep_trials.py`: **20 passed**, CPU and actual CUDA,
+  using the existing aihwkit_upstream_env. The plot test checks all six axes,
+  exact limits, matching overview/detail values and absent SD outlines.

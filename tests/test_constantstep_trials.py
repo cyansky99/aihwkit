@@ -30,20 +30,20 @@ def save_trial(root, trial_id, values, state="completed", mode="native", seed=0,
 def test_default_five_trials_keep_same_seed_and_other_settings(tmp_path):
     args = runner.parse_args([])
     jobs = runner.build_jobs(args, {"binding": "example"}, tmp_path)
-    assert len(jobs) == 15
+    assert len(jobs) == 20
     assert [(j["spec"]["trial_id"], j["spec"]["mode"]) for j in jobs] == [
         (trial, mode) for trial in range(1, 6) for mode in runner.MODES]
     assert {j["spec"]["seed"] for j in jobs} == {0}
-    assert {j["spec"]["epochs"] for j in jobs} == {20}
+    assert {j["spec"]["epochs"] for j in jobs} == {30}
     assert {j["spec"]["pulse_noise"] for j in jobs} == {0.}
-    assert len({j["path"] for j in jobs}) == 15
+    assert len({j["path"] for j in jobs}) == 20
     assert len({runner.fingerprint({k: v for k, v in j["spec"].items()
                                    if k not in ("mode", "trial_id")}) for j in jobs}) == 1
     assert args.output_dir.name == "constantstep_mask_comparison"
     with pytest.raises(SystemExit):
         runner.parse_args(["--trials", "0"])
     args = runner.parse_args(["--trials", "2", "--seeds", "0", "1", "--pulse-noise", "0", ".02"])
-    assert len(runner.build_jobs(args, {}, tmp_path)) == 24
+    assert len(runner.build_jobs(args, {}, tmp_path)) == 32
 
 
 def test_resume_and_identity_guards(tmp_path):
@@ -98,11 +98,20 @@ def test_five_trial_figure_and_grouping(tmp_path):
     loaded = plot.load_jobs(tmp_path)
     fig = plot.make_figure(loaded, 0., 0)
     try:
-        assert len(fig.axes) == 4
-        assert all(len(ax.collections) == 3 for ax in fig.axes)  # One SD band per mode.
-        assert all(len(ax.lines) == 18 for ax in fig.axes)  # Five trials + mean per mode.
+        assert len(fig.axes) == 6
+        assert all(len(ax.collections) == 4 for ax in fig.axes)  # One SD band per mode.
+        assert all(len(ax.lines) == 24 for ax in fig.axes)  # Five trials + mean per mode.
+        assert all(band.get_edgecolors().size == 0 and all(w == 0 for w in band.get_linewidths())
+                   for ax in fig.axes for band in ax.collections)
         assert [t.get_text() for t in fig.legends[0].get_texts()] == [f"{m} · n=5/5" for m in runner.MODES]
         assert fig.axes[0].lines[5].get_ydata() == pytest.approx([83, 93])
+        assert fig.axes[0].get_xlim() == pytest.approx((.5, 2.5))
+        assert fig.axes[1].get_xlim() == pytest.approx((20, 30))
+        assert fig.axes[1].get_ylim() == pytest.approx((97.8, 98.6))
+        assert fig.axes[4].get_xlim() == pytest.approx((20, 30))
+        assert fig.axes[4].get_ylim() == pytest.approx((99.75, 100.02))
+        assert fig.axes[1].lines[5].get_ydata() == pytest.approx(fig.axes[0].lines[5].get_ydata())
+        assert fig.axes[4].lines[5].get_ydata() == pytest.approx(fig.axes[3].lines[5].get_ydata())
     finally:
         plt.close(fig)
     paths = plot.render(tmp_path, pdf=True)
@@ -150,7 +159,7 @@ runpy.run_path(script, run_name='__main__')
     subprocess.run([sys.executable, "-c", code, plot.__file__, "--input", str(tmp_path)], check=True)
     dry = subprocess.run([sys.executable, "-c", code, runner.__file__, "--dry-run",
                           "--output-dir", str(tmp_path / "must_not_exist")], capture_output=True, text=True, check=True)
-    assert "15 runs × 20 epochs" in dry.stdout
+    assert "20 runs × 30 epochs" in dry.stdout
     assert not (tmp_path / "must_not_exist").exists()
     assert (tmp_path / job["path"] / "history.csv").read_bytes() == before
 

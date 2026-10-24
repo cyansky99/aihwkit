@@ -18,11 +18,11 @@ local ConstantStep/SoftBounds/TransferCompound campaign.
 | Device variation | D-to-D variation, asymmetry and reset noise zero; only dw_min_std varies |
 | Default pulse-size noise | dw_min_std=0; stochastic pulse generation remains enabled |
 | Forward / backward | Non-perfect ONE_PASS; input bound 1, output bound 12; resolutions 1/4094; output noise 0 |
-| Management | ABS_MAX noise management; ITERATIVE forward bound management; update and bit-length management enabled |
+| Management | ABS_MAX noise management and ITERATIVE forward BM; workaround sets only forward NM/BM to NONE; update and bit-length management enabled |
 | Mapping | Maximum input/output size 512; weight scaling disabled; first layer split 392+392 |
 | Physical tiles | 256×392, 256×392, 128×256, 10×128 |
 | Update | STOCHASTIC_COMPRESSED, desired_bl=31, fixed_bl=True |
-| New campaign | Seed 0; five trials per mode; 20 epochs per trial; CUDA by default |
+| New campaign | Seed 0; five trials per condition (four conditions); 30 epochs per trial; CUDA by default |
 
 Backward retains the backend's behavior: bound management is a forward
 operation. There is no DCSR, refresh, compound device or simulator modification
@@ -94,3 +94,29 @@ train on MNIST. The diagnostic transparency check uses deterministic updates to
 isolate observer effects from unpaired pulse randomness. Campaign/statistics
 checks use synthetic records, never published as measured training evidence.
 See [README.md](README.md) for training and redraw commands.
+
+## Workaround condition
+
+The common runner accepts `--modes workaround` alongside legacy/native/disabled.
+Its actual simulator mask policy is legacy; only forward NM and BM are disabled.
+The backward configuration is identical to legacy. Configuration JSON separates
+`condition` from `mask_mode`; diagnostics label the condition and actual mask
+policy independently. `workaround` is never passed as an IO mask-policy value.
+
+The published one-trial pilot predates this addition and still contains only the
+original three conditions. Its measurements and archived execution code remain
+unchanged. Historical three-condition campaigns remain readable by the plotter.
+
+The mean ± sample SD region has no stroke or edge color. Thin individual-trial
+curves remain visible, and all four condition names appear in the legend when
+present. The general resume checks still reject changed campaign identities.
+
+
+## Figure layout
+
+The two-row, three-column figure includes full accuracy curves on the left,
+accuracy detail views in the center, and online loss/mask rate on the right.
+Detail views cover epochs 20–30 and fixed ranges of 97.8–98.6% test accuracy and
+99.75–100.02% online training accuracy. These limits affect display only, not
+the completed-trial cohort, mean or sample SD. The campaign calls the same
+plotter immediately after every epoch's CSV save; redraw needs no training.
